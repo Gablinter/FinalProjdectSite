@@ -1,10 +1,43 @@
+import { useState } from "react";
+import {Routes, Route, useNavigate} from 'react-router-dom';
+
+
 export default function LoginSection() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate()
+
+    let body = {
+        username,
+        password
+    }
+
+    function formSubmitHandler(e) {
+        e.preventDefault();
+        body.username = username;
+        body.password = password;
+        fetch('http://localhost:3000/login', {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: { "Content-Type": "application/json" }
+        });
+        navigate('/')
+    }
+
+    function usernameChangeHandler(e) {
+        setUsername(e.target.value)
+    }
+
+    function passwordChangeHandler(e) {
+        setPassword(e.target.value);
+    }
+
     return (
 
         <div className="limiter">
             <div className="background-image">
                 <div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-                    <form action="POST" className="login100-form validate-form flex-sb flex-w">
+                    <form action="POST" onSubmit={formSubmitHandler} className="login100-form validate-form flex-sb flex-w">
                         <span className="login100-form-title p-b-53">
                             Sign In With
                         </span>
@@ -32,7 +65,7 @@ export default function LoginSection() {
                             </span>
                         </div>
                         <div className="wrap-input100 validate-input" data-validate="Username is required">
-                            <input className="input100" type="text" name="username" />
+                            <input className="input100" type="text" name="username" value={username} onChange={usernameChangeHandler} />
                             <span className="focus-input100"></span>
                         </div>
 
@@ -42,7 +75,7 @@ export default function LoginSection() {
                             </span>
                         </div>
                         <div className="wrap-input100 validate-input" data-validate="Password is required">
-                            <input className="input100" type="password" name="pass" />
+                            <input className="input100" type="password" name="password" value={password} onChange={passwordChangeHandler} />
                             <span className="focus-input100"></span>
                         </div>
 

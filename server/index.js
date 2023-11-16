@@ -13,6 +13,10 @@ app.use(bodyParser.json());
 app.use(cors())
 
 
+app.post('/login', (req, res) => {
+    console.log(req.body)
+})
+
 app.listen(PORT, () => console.log(`Conected to ${PORT} successfully!`))
 
 
