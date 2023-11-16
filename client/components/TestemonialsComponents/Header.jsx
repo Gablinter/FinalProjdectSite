@@ -36,7 +36,7 @@ export default function Header() {
                                 </li>
                             </ul>
                             <div className="user_optio_box">
-                                <Link to="">
+                                <Link to="/users/login">
                                     <i className="fa fa-user" aria-hidden="true"></i>
                                 </Link>
                                 <Link to="">

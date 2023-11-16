@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function AboutSection() {
     return (
         <section className="about_section layout_padding">
@@ -19,13 +21,12 @@ export default function AboutSection() {
                                 About Our Shop
                             </h2>
                             <p>
-                                There are many variations of passages of Lorem Ipsum
-                                There are many variations of
-                                passages of Lorem Ipsum
+
+                                Welcome to WatchWonders, where time meets style in the click of a second! As passionate watch enthusiasts, we curate a collection that blends the timeless elegance of classic designs with the cutting-edge innovation of contemporary timepieces.
                             </p>
-                            <a href="">
+                            <Link to="/readMore">
                                 Read More
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

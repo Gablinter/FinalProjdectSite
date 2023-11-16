@@ -1,21 +1,16 @@
 let express = require('express');
+let bodyParser = require('body-parser')
+
 
 let app = express();
 let cors = require('cors')
-const PORT = process.env.PORT || 5070;
+const PORT = process.env.PORT || 3000;
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+
 
 
 app.use(cors())
-
-app.get('/', (req, res) => {
-    res.send(`Gavro`)
-})
-
-// router.get('/api', (req, res) => {
-//     res.json({ message: "Hello from server!" });
-// });
-
-// app.use('/', router);
 
 
 app.listen(PORT, () => console.log(`Conected to ${PORT} successfully!`))
