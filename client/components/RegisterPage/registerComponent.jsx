@@ -1,10 +1,11 @@
 import { useState } from "react";
-import {Routes, Route, useNavigate, Link} from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 
 export default function LoginSection() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [repeatPassword, setRepeatPassword] = useState('')
     const navigate = useNavigate()
 
     let body = {
@@ -16,7 +17,8 @@ export default function LoginSection() {
         e.preventDefault();
         body.username = username;
         body.password = password;
-        fetch('http://localhost:3000/login', {
+        body.repeatPassword = repeatPassword;
+        fetch('http://localhost:3000/register', {
             method: 'POST',
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -30,6 +32,10 @@ export default function LoginSection() {
 
     function passwordChangeHandler(e) {
         setPassword(e.target.value);
+    }
+
+    function repeatPasswordChangeHandler(e) {
+        setRepeatPassword(e.target.value);
     }
 
     return (
@@ -79,21 +85,23 @@ export default function LoginSection() {
                             <span className="focus-input100"></span>
                         </div>
 
+                        <div className="p-t-13 p-b-9">
+                            <span className="txt1">
+                                Repeat Password
+                            </span>
+                        </div>
+                        <div className="wrap-input100 validate-input" data-validate="Password is required">
+                            <input className="input100" type="password" name="password" value={repeatPassword} onChange={repeatPasswordChangeHandler} />
+                            <span className="focus-input100"></span>
+                        </div>
+
+
                         <div className="container-login100-form-btn m-t-17">
                             <button className="login100-form-btn">
-                                Sign In
+                                Sign Up
                             </button>
                         </div>
 
-                        <div className="w-full text-center p-t-55">
-                            <span className="txt2">
-                                Not a member?
-                            </span>
-
-                            <Link to='/users/register' className="txt2 bo1">
-                                Sign up now
-                            </Link>
-                        </div>
                     </form>
                 </div>
             </div>
