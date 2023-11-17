@@ -16,7 +16,7 @@ export default function LoginSection() {
         e.preventDefault();
         body.username = username;
         body.password = password;
-        fetch('http://localhost:3000/login', {
+        fetch('http://localhost:3000/users/login', {
             method: 'POST',
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
