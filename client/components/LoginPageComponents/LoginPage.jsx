@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { Routes, Route, useNavigate, Link } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate, Link } from 'react-router-dom';
+import { useCookies } from "react-cookie";
 
 
 export default function LoginSection() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [cookies, setCookie] = useCookies(["token"]);
     const navigate = useNavigate()
 
 
@@ -30,9 +32,10 @@ export default function LoginSection() {
             .then((res) => res.json())
             .then((data) => {
                 if (data.message = 'Success') {
+                    setCookie("token", data.messageToken, { path: '/' });
                     navigate('/')
                 } else {
-                    
+
                 }
             });
 
@@ -60,17 +63,17 @@ export default function LoginSection() {
                         <div className="fbAndGoogleLogin">
 
                             <div className="fbLogin">
-                                <a href="#" className="btn-face m-b-20">
+                                <Link to="https://www.facebook.com/?stype=lo&deoia=1&jlou=Aff5GrF5zRp4S2qXXIJQl1wGExe1D23HQeBW5etgwmURBwknnAFtWit24NCD_oRy7Os7ubJnsMxGOaBe3zTITA9NuPES-lVNkfhC2iMxfUkc2w&smuh=45332&lh=Ac9ghbaQJpN1M3Gc_E8" className="btn-face m-b-20">
                                     <i className="fa fa-facebook-official"></i>
                                     Facebook
-                                </a>
+                                </Link>
                             </div>
 
                             <div className="googleLogin">
-                                <a href="#" className="btn-google m-b-20">
+                                <Link to="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=AVQVeyw9mv9SZLC4ds-SGvu-Qo6arLf7vSImK9_dGEI3I2Cy2I8MVaheiqjcm9hp1GLPorSLqAFS6g&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-469588622%3A1700301410556468&theme=glif" className="btn-google m-b-20">
                                     <img src="../public/login/images/icons/icon-google.png" alt="GOOGLE" />
                                     Google
-                                </a>
+                                </Link>
                             </div>
                         </div>
 

@@ -1,4 +1,16 @@
+import { Link } from 'react-router-dom'
+import { useCookies } from "react-cookie";
+
+
 export default function ProductSection() {
+
+    let navigate = '/cartPage'
+
+    let [cookie, setCookie] = useCookies('[token]');
+    if(cookie.token === undefined){
+        navigate = '/users/login'
+    }
+
     return (
         <section className="product_section ">
             <div className="container">
@@ -37,9 +49,9 @@ export default function ProductSection() {
                             </div>
                         </div>
                         <div className="btn-box">
-                            <a href="">
+                            <Link to={navigate}>
                                 Add To Cart
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="box">
@@ -71,9 +83,9 @@ export default function ProductSection() {
                             </div>
                         </div>
                         <div className="btn-box">
-                            <a href="">
+                            <Link to={navigate}>
                                 Add To Cart
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="box">
@@ -105,9 +117,9 @@ export default function ProductSection() {
                             </div>
                         </div>
                         <div className="btn-box">
-                            <a href="">
+                            <Link to={navigate}>
                                 Add To Cart
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

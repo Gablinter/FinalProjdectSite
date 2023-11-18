@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+
+
 export default function SliderSection() {
     return (
         <div className="hero_area">
@@ -19,12 +22,12 @@ export default function SliderSection() {
                                                 Welcome to our online watch shop, where timepieces transform into timeless companions. Here, we curate a meticulously crafted collection of watches that embrace both elegance and functionality.
                                             </p>
                                             <div className="btn-box">
-                                                <a href="" className="btn1">
+                                                <Link to="/contactUs" className="btn1">
                                                     Contact Us
-                                                </a>
-                                                <a href="" className="btn2">
+                                                </Link>
+                                                <Link to="/about" className="btn2">
                                                     About Us
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
@@ -44,12 +47,12 @@ export default function SliderSection() {
                                                 In our online watch shop, we offer a diverse and carefully curated selection of timepieces to cater to every discerning taste. From classic and vintage-inspired watches to cutting-edge smartwatches, our collection encompasses a wide range of styles and functionalities.
                                             </p>
                                             <div className="btn-box">
-                                                <a href="" className="btn1">
+                                                <Link to="/contactUs" className="btn1">
                                                     Contact Us
-                                                </a>
-                                                <a href="" className="btn2">
+                                                </Link>
+                                                <Link to="/about" className="btn2">
                                                     About Us
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

@@ -16,13 +16,14 @@ router.post('/register', async (req, res) => {
 })
 
 let isValid = true;
-let errorMessage = ''
+let errorMessage = '';
+let messageToken = '';
 
 router.post('/login', async (req, res) => {
 
     try {
         let token = await userServices.login(req.body.username, req.body.password);
-
+        messageToken = token;
         res.cookie('token', token, { httpOnly: true })
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
@@ -36,7 +37,7 @@ router.post('/login', async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (isValid) {
-        res.json({ message: 'Success' })
+        res.json({ message: 'Success', messageToken, })
     } else {
         res.json({ message: errorMessage })
     }

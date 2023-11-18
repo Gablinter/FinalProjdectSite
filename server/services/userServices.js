@@ -48,3 +48,4 @@ exports.login = async (username, password) => {
 
     return token;
 };
+
