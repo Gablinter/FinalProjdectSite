@@ -1,11 +1,12 @@
-import { useState } from "react";
-import {Routes, Route, useNavigate, Link} from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 
 
 export default function LoginSection() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
+
 
     let body = {
         username,
@@ -21,8 +22,23 @@ export default function LoginSection() {
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
         });
-        navigate('/')
+
+        fetch(`http://localhost:3000/users/login`, {
+            method: 'GET',
+            headers: { "Content-Type": "application/json" }
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.message = 'Success') {
+                    navigate('/')
+                } else {
+                    
+                }
+            });
+
     }
+
+
 
     function usernameChangeHandler(e) {
         setUsername(e.target.value)

@@ -7,6 +7,7 @@ import ContactPage from '../ContactUsPage/App'
 import LoginPage from '../LoginPage/LoginPageComponent'
 import ReadMore from '../../pages/readMorePage';
 import RegisterPage from '../RegisterPage/App'
+import CartPage from '../CartPage/App';
 // import { useEffect, useState } from 'react';
 
 
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/readMore" element={<ReadMore />} />
             <Route path="/users/login" element={<LoginPage />} />
             <Route path="/users/register" element={<RegisterPage />} />
+            <Route path="/cartPage" element={<CartPage />} />
         </Routes>
     )
 }

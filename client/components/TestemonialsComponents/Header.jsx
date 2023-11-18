@@ -39,7 +39,7 @@ export default function Header() {
                                 <Link to="/users/login">
                                     <i className="fa fa-user" aria-hidden="true"></i>
                                 </Link>
-                                <Link to="">
+                                <Link to="/cartPage">
                                     <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                                 </Link>
                             </div>
