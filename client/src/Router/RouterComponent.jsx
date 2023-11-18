@@ -8,6 +8,7 @@ import LoginPage from '../LoginPage/LoginPageComponent'
 import ReadMore from '../../pages/readMorePage';
 import RegisterPage from '../RegisterPage/App'
 import CartPage from '../CartPage/App';
+import NotFound from '../404Page/App';
 // import { useEffect, useState } from 'react';
 
 
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/users/login" element={<LoginPage />} />
             <Route path="/users/register" element={<RegisterPage />} />
             <Route path="/cartPage" element={<CartPage />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     )
 }
