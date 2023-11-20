@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 
@@ -24,20 +24,19 @@ export default function LoginSection() {
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
         });
-
-        fetch(`http://localhost:3000/users/login`, {
-            method: 'GET',
-            headers: { "Content-Type": "application/json" }
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.message = 'Success') {
-                    setCookie("token", data.messageToken, { path: '/' });
-                    navigate('/')
-                } else {
-
-                }
-            });
+        setTimeout(() => {
+            fetch(`http://localhost:3000/users/loggedin`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.message = 'Success') {
+                        setCookie("token", data.messageToken, { path: '/' });
+                        navigate('/')
+                    }
+                })
+        }, 100)
 
     }
 

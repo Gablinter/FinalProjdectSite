@@ -1,15 +1,30 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCookies } from "react-cookie";
 
 
 export default function ProductSection() {
 
-    let navigate = '/cartPage'
-
     let [cookie, setCookie] = useCookies('[token]');
-    if(cookie.token === undefined){
-        navigate = '/users/login'
+    let navigate1 = useNavigate()
+
+    async function returnNavigate() {
+
+        isValid = cookie.hasOwnProperty("token");
+        if (!isValid) {
+            return '/users/login'
+        } else {
+            return '/cartPage'
+        }
     }
+
+
+
+    async function addToCartHandler(e) {
+        e.preventDefault()
+        let navigate =  returnNavigate()
+        navigate1(navigate)
+    }
+
 
     return (
         <section className="product_section ">
@@ -49,7 +64,7 @@ export default function ProductSection() {
                             </div>
                         </div>
                         <div className="btn-box">
-                            <Link to={navigate}>
+                            <Link onClick={addToCartHandler}>
                                 Add To Cart
                             </Link>
                         </div>
@@ -83,7 +98,7 @@ export default function ProductSection() {
                             </div>
                         </div>
                         <div className="btn-box">
-                            <Link to={navigate}>
+                            <Link onClick={addToCartHandler}>
                                 Add To Cart
                             </Link>
                         </div>
@@ -117,7 +132,7 @@ export default function ProductSection() {
                             </div>
                         </div>
                         <div className="btn-box">
-                            <Link to={navigate}>
+                            <Link onClick={addToCartHandler}>
                                 Add To Cart
                             </Link>
                         </div>

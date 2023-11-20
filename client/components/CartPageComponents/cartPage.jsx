@@ -1,4 +1,11 @@
+import { Link } from "react-router-dom"
+
+
 export default function CartPage() {
+    
+    
+
+
     return (
         <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
             <div className="container py-5 h-100">
@@ -9,10 +16,10 @@ export default function CartPage() {
                                 <div className="row">
                                     <div className="col-lg-7">
                                         <h5 className="mb-3">
-                                            <a href="#!" className="text-body">
+                                            <Link to="/catalog" className="text-body">
                                                 <i className="fas fa-long-arrow-alt-left me-2" />
                                                 Continue shopping
-                                            </a>
+                                            </Link>
                                         </h5>
                                         <hr />
                                         <div className="d-flex justify-content-between align-items-center mb-4">
@@ -20,7 +27,7 @@ export default function CartPage() {
                                                 <p className="mb-1">Shopping cart</p>
                                                 <p className="mb-0">You have 4 items in your cart</p>
                                             </div>
-                            
+
                                         </div>
                                         <div className="card mb-3">
                                             <div className="card-body">

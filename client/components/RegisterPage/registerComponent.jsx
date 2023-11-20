@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
 
 
 export default function LoginSection() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('')
+    const [cookies, setCookie] = useCookies(["token"]);
     const navigate = useNavigate()
 
     let body = {
@@ -13,7 +15,9 @@ export default function LoginSection() {
         password
     }
 
-    function formSubmitHandler(e) {
+
+
+    async function formSubmitHandler(e) {
         e.preventDefault();
         body.username = username;
         body.password = password;
@@ -22,9 +26,33 @@ export default function LoginSection() {
             method: 'POST',
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
+
         });
-        navigate('/')
+        setTimeout(() => {
+            fetch(`http://localhost:3000/users/registered`, {
+                method: 'GET',
+                headers: { "Content-Type": "application/json" }
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.message = 'Success') {
+                        setCookie("token", data.messageTokenRegister, { path: '/' });
+                        navigate('/')
+                    }
+                })
+
+        }, 100)
+
+
+
     }
+
+
+
+
+
+
+
 
     function usernameChangeHandler(e) {
         setUsername(e.target.value)
