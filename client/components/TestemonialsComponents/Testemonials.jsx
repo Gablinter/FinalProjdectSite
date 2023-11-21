@@ -22,7 +22,7 @@ export default function Testemonial() {
                                             <div className="client_info">
                                                 <div className="client_name">
                                                     <h5>
-                                                        Morojink
+                                                        George
                                                     </h5>
                                                     <h6>
                                                         Customer
@@ -31,13 +31,7 @@ export default function Testemonial() {
                                                 <i className="fa fa-quote-left" aria-hidden="true"></i>
                                             </div>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                                labore
-                                                et
-                                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                cillum
-                                                dolore eu fugia
+                                                I am delighted to share my exceptional experience with WatchWonders, an online watch shop that has truly redefined the art of timekeeping. As a passionate watch enthusiast, I have explored numerous online platforms, but WatchWonders stands out as a beacon of excellence.
                                             </p>
                                         </div>
                                     </div>
@@ -57,7 +51,7 @@ export default function Testemonial() {
                                             <div className="client_info">
                                                 <div className="client_name">
                                                     <h5>
-                                                        Morojink
+                                                        Pesho
                                                     </h5>
                                                     <h6>
                                                         Customer
@@ -66,13 +60,7 @@ export default function Testemonial() {
                                                 <i className="fa fa-quote-left" aria-hidden="true"></i>
                                             </div>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                                labore
-                                                et
-                                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                cillum
-                                                dolore eu fugia
+                                                What sets WatchWonders apart is not only the remarkable variety but also the commitment to quality. Each watch showcased reflects precision craftsmanship and attention to detail, ensuring a level of excellence that exceeds expectations. The watches I purchased from WatchWonders have not only proven to be reliable timekeepers but also stylish accessories that garner compliments on every occasion.
                                             </p>
                                         </div>
                                     </div>
@@ -92,7 +80,7 @@ export default function Testemonial() {
                                             <div className="client_info">
                                                 <div className="client_name">
                                                     <h5>
-                                                        Morojink
+                                                        Nikola
                                                     </h5>
                                                     <h6>
                                                         Customer
@@ -101,13 +89,7 @@ export default function Testemonial() {
                                                 <i className="fa fa-quote-left" aria-hidden="true"></i>
                                             </div>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                                labore
-                                                et
-                                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                cillum
-                                                dolore eu fugia
+                                                From the moment I navigated their user-friendly website, I was captivated by the extensive and curated collection of timepieces. Whether you're seeking a classic elegance, a sporty companion, or a cutting-edge design, WatchWonders offers a diverse range to suit every taste and occasion.
                                             </p>
                                         </div>
                                     </div>
