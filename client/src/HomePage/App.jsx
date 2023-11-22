@@ -3,8 +3,6 @@ import SliderSection from '../../components/HomePageComponents/SliderSection'
 import ServiceSection from '../../components/HomePageComponents/ServiceSection'
 import AboutSection from '../../components/HomePageComponents/AboutSection'
 import ProductSection from '../../components/HomePageComponents/ProductSection'
-import FutureProductSection from '../../components/HomePageComponents/FutureProductsSections'
-import NewArivals from '../../components/HomePageComponents/NewArivals'
 import ContactSection from '../../components/HomePageComponents/ContactSection'
 import ClientSection from '../../components/HomePageComponents/ClientSection'
 import InfoSection from '../../components/HomePageComponents/InfoSection'
@@ -21,8 +19,8 @@ export default function App() {
       <ServiceSection />
       <AboutSection />
       <ProductSection />
-      <FutureProductSection />
-      <NewArivals />
+      {/* <FutureProductSection /> */}
+      {/* <NewArivals /> */}
       <ContactSection />
       <ClientSection />
       <InfoSection />

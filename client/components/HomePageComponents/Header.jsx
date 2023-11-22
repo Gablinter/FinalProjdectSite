@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 let i = 0;
 
 export default function Hearder() {
-
     let [isLoggedIn, setIsLoggedIn] = useState('');
     let [message, setMessage] = useState([]);
     let [cookie, setCookie, removeCookie] = useCookies('[token]');
@@ -24,7 +23,6 @@ export default function Hearder() {
         setMessage(i)
         i++
     }
-
 
     return (
         <div>
@@ -63,19 +61,20 @@ export default function Hearder() {
                             <div className="user_optio_box">
 
                                 {isLoggedIn === '' ?
-
-                                    <button className="nav-item">
-                                        <Link className="nav-link" onClick={logoutClickHandler}>Logout</Link>
-                                    </button>
-
+                                    <>
+                                        <button className="nav-item">
+                                            <Link className="nav-link" onClick={logoutClickHandler}>Logout</Link>
+                                        </button>
+                                        <Link to="/cartPage">
+                                            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        </Link>
+                                    </>
                                     :
                                     <>
                                         <Link to="/users/login">
                                             <i className="fa fa-user" aria-hidden="true"></i>
                                         </Link>
-                                        <Link to="/cartPage">
-                                            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        </Link>
+
                                     </>}
 
                             </div>

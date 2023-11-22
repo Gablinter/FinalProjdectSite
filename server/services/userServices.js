@@ -54,7 +54,7 @@ exports.register = async (userData) => {
 exports.registeredLogin = async (username, password) => {
     const user = await User.findOne({ username });
 
-    
+
     const payload = {
         _id: user._id,
         username: user.username,
@@ -63,5 +63,17 @@ exports.registeredLogin = async (username, password) => {
     const token = await jwt.sign(payload, SECRET, { expiresIn: "3d" });
 
     return token;
+}
+
+exports.getByUsernameAndUpdate = async (username, id) => {
+    let user = await User.findOne({ username })
+    user.products.push(id);
+    user.save()
+    return user;
+}
+
+exports.getUser = async (username, ) => {
+    let user = await User.findOne({ username })
+    return user;
 }
 

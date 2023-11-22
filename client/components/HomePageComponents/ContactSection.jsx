@@ -18,7 +18,7 @@ export default function ContactSection() {
         e.preventDefault();
         let btn = document.getElementById('submitBtnContact');
         btn.textContent = 'SUCCESSFULLY SENT';
-        fetch('http://localhost:3000/users/tickets', {
+        fetch('http://localhost:3000/posts/tickets', {
             method: "POST",
             body: JSON.stringify({
                 body

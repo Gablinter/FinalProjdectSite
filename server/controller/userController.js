@@ -56,9 +56,6 @@ router.get('/registered', (req, res) => {
 })
 
 
-router.post('/tickets', (req, res) => {
 
-    ticketServers.create(req.body.body)
-})
 
 module.exports = router;

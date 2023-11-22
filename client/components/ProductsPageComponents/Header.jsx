@@ -1,6 +1,28 @@
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from 'react-router-dom';
+import { useCookies } from "react-cookie";
+import { useEffect, useState } from 'react';
+let i = 0;
 
-export default function Header() {
+export default function Hearder() {
+    let [isLoggedIn, setIsLoggedIn] = useState('');
+    let [message, setMessage] = useState([]);
+    let [cookie, setCookie, removeCookie] = useCookies('[token]');
+
+
+    useEffect(() => {
+        if (cookie.token === undefined) {
+            setIsLoggedIn((str) => str + '1')
+        }
+    }, [message])
+
+
+    function logoutClickHandler(e) {
+        e.preventDefault();
+        removeCookie('token')
+        setIsLoggedIn(i);
+        setMessage(i)
+        i++
+    }
     return (
         // <div className="hero_area">
 
@@ -36,12 +58,22 @@ export default function Header() {
                             </li>
                         </ul>
                         <div className="user_optio_box">
-                            <Link to="/users/login">
-                                <i className="fa fa-user" aria-hidden="true"></i>
-                            </Link>
-                            <Link to="/cartPage">
-                                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                            </Link>
+                            {isLoggedIn === '' ?
+                                <>
+                                    <button className="nav-item">
+                                        <Link className="nav-link" onClick={logoutClickHandler}>Logout</Link>
+                                    </button>
+                                    <Link to="/cartPage">
+                                        <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </Link>
+                                </>
+                                :
+                                <>
+                                    <Link to="/users/login">
+                                        <i className="fa fa-user" aria-hidden="true"></i>
+                                    </Link>
+
+                                </>}
                         </div>
                     </div>
                 </nav>

@@ -2,8 +2,15 @@ import { Link } from "react-router-dom"
 
 
 export default function CartPage() {
-    
-    
+
+    fetch('http://localhost:3000/posts/addToCart', {
+        method: "GET",
+        headers: {
+            "Content-Type": 'application/json'
+        }
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 
 
     return (
