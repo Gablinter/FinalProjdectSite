@@ -60,14 +60,17 @@ export default function Hearder() {
                         <div className="user_optio_box">
 
                             {isLoggedIn === '' ?
-                                <>
-                                    <button className="nav-item">
-                                        <Link className="nav-link" onClick={logoutClickHandler}>Logout</Link>
-                                    </button>
-                                    <Link to="/cartPage">
-                                        <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    </Link>
-                                </>
+                                 <>
+
+                                 <Link to="/cartPage">
+                                     <i className="fa fa-shopping-cart" id="shoppingCart" aria-hidden="true"></i>
+                                 </Link>
+
+                                 <button className="nav-item" id="logoutButton">
+                                     <Link className="nav-link" id='logout-button' onClick={logoutClickHandler}>LOGOUT</Link>
+                                 </button>
+
+                             </>
                                 :
                                 <>
                                     <Link to="/users/login">
