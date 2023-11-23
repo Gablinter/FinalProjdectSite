@@ -19,9 +19,14 @@ router.post('/addToCart', async (req, res) => {
 
 })
 
-// router.get('/addToCart', async (req,res) => {
+router.post('/cartPage', async (req, res) => {
+    let token = req.body.cookie.token;
+    let result = await jwt.verify(token, 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
+    let username = result.username;
+    let user = await userService.getUser(username);
+    res.json({ products: user.products })
+})
 
-// })
 
 
 module.exports = router;

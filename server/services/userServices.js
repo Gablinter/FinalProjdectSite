@@ -1,5 +1,6 @@
 let bcrypt = require('bcrypt')
 let User = require('../models/userModel');
+let Watch = require('../models/watchesModel');
 let jwt = require('../lib/jwt')
 let SECRET = `f0e95d18-feb8-4561-ae18-d3cd41b749d5`;
 
@@ -72,8 +73,12 @@ exports.getByUsernameAndUpdate = async (username, id) => {
     return user;
 }
 
-exports.getUser = async (username, ) => {
+exports.getUser = async (username,) => {
     let user = await User.findOne({ username })
     return user;
 }
 
+exports.getWatches = async (watchId) => {
+    let watch = await Watch.findOne({ watchId })
+    return watch;
+}

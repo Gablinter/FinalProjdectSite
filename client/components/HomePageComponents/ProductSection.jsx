@@ -1,21 +1,11 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useCookies } from "react-cookie";
 
 
 export default function ProductSection() {
 
     let [cookie, setCookie] = useCookies('[token]');
-    let navigate1 = useNavigate()
 
-    async function returnNavigate() {
-
-        let isValid = cookie.hasOwnProperty("token");
-        if (!isValid) {
-            return '/users/login'
-        } else {
-            return '/cartPage'
-        }
-    }
 
 
 
@@ -33,8 +23,6 @@ export default function ProductSection() {
                 headers: { "Content-Type": "application/json" }
             })
         }
-        let navigate = await returnNavigate()
-        navigate1(navigate)
     }
 
 
@@ -77,7 +65,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="1">
+                                <Link onClick={addToCartHandler} id="250">
                                     Add To Cart
                                 </Link>
                             </div>
@@ -111,7 +99,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="2">
+                                <Link onClick={addToCartHandler} id="300">
                                     Add To Cart
                                 </Link>
                             </div>
@@ -145,7 +133,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="3">
+                                <Link onClick={addToCartHandler} id="400">
                                     Add To Cart
                                 </Link>
                             </div>
@@ -173,7 +161,7 @@ export default function ProductSection() {
                                             Lunar Luminescence Moonphase
                                         </h6>
                                         <h5 className='priceStyle'>
-                                            <span  >$</span> 400
+                                            <span  >$</span> 410
                                         </h5>
                                     </div>
                                     <div className="like">
@@ -191,7 +179,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="4">
+                                <Link onClick={addToCartHandler} id="410">
                                     Add To Cart
                                 </Link>
                             </div>
@@ -225,7 +213,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="5">
+                                <Link onClick={addToCartHandler} id="350">
                                     Add To Cart
                                 </Link>
                             </div>
@@ -259,7 +247,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="6">
+                                <Link onClick={addToCartHandler} id="200">
                                     Add To Cart
                                 </Link>
                             </div>
@@ -306,7 +294,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="7">
+                                <Link onClick={addToCartHandler} id="190">
                                     Add To Cart
                                 </Link>
                             </div>
@@ -322,7 +310,7 @@ export default function ProductSection() {
                                             Nautical Marine Chronometer
                                         </h6>
                                         <h5 className='priceStyle'>
-                                            <span>$</span> 300
+                                            <span>$</span> 310
                                         </h5>
                                     </div>
                                     <div className="like">
@@ -340,7 +328,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="8">
+                                <Link onClick={addToCartHandler} id="310">
                                     Add To Cart
                                 </Link>
                             </div>
@@ -356,7 +344,7 @@ export default function ProductSection() {
                                             Celestial Constellation Starlight
                                         </h6>
                                         <h5 className='priceStyle'>
-                                            <span >$</span> 400
+                                            <span >$</span> 390
                                         </h5>
                                     </div>
                                     <div className="like">
@@ -374,7 +362,7 @@ export default function ProductSection() {
                                 </div>
                             </div>
                             <div className="btn-box">
-                                <Link onClick={addToCartHandler} id="9">
+                                <Link onClick={addToCartHandler} id="390">
                                     Add To Cart
                                 </Link>
                             </div>

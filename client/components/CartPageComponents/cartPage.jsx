@@ -1,16 +1,37 @@
 import { Link } from "react-router-dom"
-
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 
 export default function CartPage() {
+    let [cookie, setCookie] = useCookies('[token]')
+    let [products, setProducts] = useState([]);
+    let [price, setPrice] = useState(0);
 
-    fetch('http://localhost:3000/posts/addToCart', {
-        method: "GET",
-        headers: {
-            "Content-Type": 'application/json'
-        }
-    })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+    useEffect(() => {
+        fetch('http://localhost:3000/posts/cartPage', {
+            method: "POST",
+            body: JSON.stringify({
+                cookie: cookie
+            }),
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setProducts(data.products);
+                let sum = data.products;
+                sum.map((x) => {
+                    setPrice(y =>
+                        Number(y) + Number(x))
+
+                })
+            }
+            );
+    }, [])
+    console.log
+
+
 
 
     return (
@@ -32,134 +53,330 @@ export default function CartPage() {
                                         <div className="d-flex justify-content-between align-items-center mb-4">
                                             <div>
                                                 <p className="mb-1">Shopping cart</p>
-                                                <p className="mb-0">You have 4 items in your cart</p>
+                                                <p className="mb-0">You have {products.length} items in your cart</p>
                                             </div>
 
                                         </div>
-                                        <div className="card mb-3">
-                                            <div className="card-body">
-                                                <div className="d-flex justify-content-between">
-                                                    <div className="d-flex flex-row align-items-center">
-                                                        <div>
-                                                            <img
-                                                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                                                                className="img-fluid rounded-3"
-                                                                alt="Shopping item"
-                                                                style={{ width: 65 }}
-                                                            />
+
+                                        {products.includes('250') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w1.png'
+                                                                        id="cartImage1"
+                                                                    // alt="Shopping item"
+                                                                    // style={{ width: 65 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Eternal Elegance Chronograph</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$250</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                        <div className="ms-3">
-                                                            <h5>Iphone 11 pro</h5>
-                                                            <p className="small mb-0">256GB, Navy Blue</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="d-flex flex-row align-items-center">
-                                                        <div style={{ width: 50 }}>
-                                                            <h5 className="fw-normal mb-0">2</h5>
-                                                        </div>
-                                                        <div style={{ width: 80 }}>
-                                                            <h5 className="mb-0">$900</h5>
-                                                        </div>
-                                                        <a href="#!" style={{ color: "#cecece" }}>
-                                                            <i className="fas fa-trash-alt" />
-                                                        </a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="card mb-3">
-                                            <div className="card-body">
-                                                <div className="d-flex justify-content-between">
-                                                    <div className="d-flex flex-row align-items-center">
-                                                        <div>
-                                                            <img
-                                                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
-                                                                className="img-fluid rounded-3"
-                                                                alt="Shopping item"
-                                                                style={{ width: 65 }}
-                                                            />
+                                            </>
+                                        }
+                                        {products.includes('300') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w2.png'
+                                                                        className="img-fluid rounded-3"
+                                                                        alt="Shopping item"
+                                                                        style={{ width: 65, marginRight: 10 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Sapphire Serenity Dive Watch</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$300</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                        <div className="ms-3">
-                                                            <h5>Samsung galaxy Note 10 </h5>
-                                                            <p className="small mb-0">256GB, Navy Blue</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="d-flex flex-row align-items-center">
-                                                        <div style={{ width: 50 }}>
-                                                            <h5 className="fw-normal mb-0">2</h5>
-                                                        </div>
-                                                        <div style={{ width: 80 }}>
-                                                            <h5 className="mb-0">$900</h5>
-                                                        </div>
-                                                        <a href="#!" style={{ color: "#cecece" }}>
-                                                            <i className="fas fa-trash-alt" />
-                                                        </a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="card mb-3">
-                                            <div className="card-body">
-                                                <div className="d-flex justify-content-between">
-                                                    <div className="d-flex flex-row align-items-center">
-                                                        <div>
-                                                            <img
-                                                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img3.webp"
-                                                                className="img-fluid rounded-3"
-                                                                alt="Shopping item"
-                                                                style={{ width: 65 }}
-                                                            />
+                                            </>
+                                        }
+                                        {products.includes('400') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w3.png'
+                                                                        className="img-fluid rounded-3"
+                                                                        alt="Shopping item"
+                                                                        style={{ width: 65, marginRight: 10 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Horizon Heritage Automatic</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$400</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                        <div className="ms-3">
-                                                            <h5>Canon EOS M50</h5>
-                                                            <p className="small mb-0">Onyx Black</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="d-flex flex-row align-items-center">
-                                                        <div style={{ width: 50 }}>
-                                                            <h5 className="fw-normal mb-0">1</h5>
-                                                        </div>
-                                                        <div style={{ width: 80 }}>
-                                                            <h5 className="mb-0">$1199</h5>
-                                                        </div>
-                                                        <a href="#!" style={{ color: "#cecece" }}>
-                                                            <i className="fas fa-trash-alt" />
-                                                        </a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="card mb-3 mb-lg-0">
-                                            <div className="card-body">
-                                                <div className="d-flex justify-content-between">
-                                                    <div className="d-flex flex-row align-items-center">
-                                                        <div>
-                                                            <img
-                                                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img4.webp"
-                                                                className="img-fluid rounded-3"
-                                                                alt="Shopping item"
-                                                                style={{ width: 65 }}
-                                                            />
+                                            </>
+                                        }
+                                        {products.includes('410') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w4.png'
+                                                                        className="img-fluid rounded-3"
+                                                                        alt="Shopping item"
+                                                                        style={{ width: 65, marginRight: 10 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Lunar Luminescence Moonphase</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$410</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                        <div className="ms-3">
-                                                            <h5>MacBook Pro</h5>
-                                                            <p className="small mb-0">1TB, Graphite</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="d-flex flex-row align-items-center">
-                                                        <div style={{ width: 50 }}>
-                                                            <h5 className="fw-normal mb-0">1</h5>
-                                                        </div>
-                                                        <div style={{ width: 80 }}>
-                                                            <h5 className="mb-0">$1799</h5>
-                                                        </div>
-                                                        <a href="#!" style={{ color: "#cecece" }}>
-                                                            <i className="fas fa-trash-alt" />
-                                                        </a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </>
+                                        }
+                                        {products.includes('350') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w5.png'
+                                                                        className="img-fluid rounded-3"
+                                                                        alt="Shopping item"
+                                                                        style={{ width: 65, marginRight: 10 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Majestic Marvel Swiss Classic</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$350</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        }
+                                        {products.includes('200') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w6.png'
+                                                                        className="img-fluid rounded-3"
+                                                                        alt="Shopping item"
+                                                                        style={{ width: 65, marginRight: 10 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Velocity Voyager Pilot Watch</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$200</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        }
+                                        {products.includes('190') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w7.png'
+                                                                        className="img-fluid rounded-3"
+                                                                        alt="Shopping item"
+                                                                        style={{ width: 65, marginRight: 10 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Crimson Cascade Limited Edition</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$190</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        }
+                                        {products.includes('310') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w8.png'
+                                                                        className="img-fluid rounded-3"
+                                                                        alt="Shopping item"
+                                                                        style={{ width: 65, marginRight: 10 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Nautical Marine Chronometer</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$310</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        }
+                                        {products.includes('390') &&
+                                            <>
+                                                <div className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="d-flex justify-content-between">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div>
+                                                                    <img
+                                                                        src='../../public/dist/images/w9.png'
+                                                                        className="img-fluid rounded-3"
+                                                                        alt="Shopping item"
+                                                                        style={{ width: 65, marginRight: 10 }}
+                                                                    />
+                                                                </div>
+                                                                <div className="ms-3">
+                                                                    <h5>Celestial Constellation Starlight</h5>
+                                                                    <p className="small mb-0"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <div style={{ width: 50 }}>
+                                                                    <h5 className="fw-normal mb-0">1</h5>
+                                                                </div>
+                                                                <div style={{ width: 80 }}>
+                                                                    <h5 className="mb-0">$390</h5>
+                                                                </div>
+                                                                <a href="#!" style={{ color: "#cecece" }}>
+                                                                    <i className="fas fa-trash-alt" />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        }
+
+
+
+
                                     </div>
                                     <div className="col-lg-5">
                                         <div className="card bg-primary text-white rounded-3">
@@ -251,7 +468,7 @@ export default function CartPage() {
                                                 <hr className="my-4" />
                                                 <div className="d-flex justify-content-between">
                                                     <p className="mb-2">Subtotal</p>
-                                                    <p className="mb-2">$4798.00</p>
+                                                    <p className="mb-2">${price}</p>
                                                 </div>
                                                 <div className="d-flex justify-content-between">
                                                     <p className="mb-2">Shipping</p>
@@ -259,14 +476,14 @@ export default function CartPage() {
                                                 </div>
                                                 <div className="d-flex justify-content-between mb-4">
                                                     <p className="mb-2">Total(Incl. taxes)</p>
-                                                    <p className="mb-2">$4818.00</p>
+                                                    <p className="mb-2">${price + 20}</p>
                                                 </div>
                                                 <button
                                                     type="button"
                                                     className="btn btn-info btn-block btn-lg"
                                                 >
                                                     <div className="d-flex justify-content-between">
-                                                        <span>$4818.00</span>
+                                                        <span>${price + 20}</span>
                                                         <span>
                                                             Checkout{" "}
                                                             <i className="fas fa-long-arrow-alt-right ms-2" />
