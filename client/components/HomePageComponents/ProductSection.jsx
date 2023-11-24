@@ -26,6 +26,13 @@ export default function ProductSection() {
     }
 
 
+    function likeClickHandler(e) {
+        let box = (e.target.parentElement.parentElement.parentElement.parentElement);
+        let id = (box.children[1].children[0].id)
+
+        
+    }
+
     return (
         <>
             <section className="product_section ">
@@ -51,7 +58,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -85,7 +92,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -119,7 +126,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -165,7 +172,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -199,7 +206,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -233,7 +240,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -280,7 +287,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -314,7 +321,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -348,7 +355,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6>
+                                        <h6 onClick={likeClickHandler}>
                                             Like
                                         </h6>
                                         <div className="star_container">

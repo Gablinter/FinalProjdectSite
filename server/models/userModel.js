@@ -9,6 +9,9 @@ let userSchema = new mongoose.Schema({
     },
     products: {
         type: Array,
+    },
+    likes: {
+        type: Array,
     }
 
 })
