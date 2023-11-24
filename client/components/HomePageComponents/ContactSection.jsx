@@ -89,7 +89,9 @@ export default function ContactSection() {
                     <div className="col-md-6 ">
                         <div className="map_container">
                             <div className="map">
-                                <div id="googleMap"></div>
+                                <div id="googleMap">
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>

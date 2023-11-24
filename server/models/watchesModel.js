@@ -13,7 +13,7 @@ let watchSchema = new mongoose.Schema({
     watchId: {
         type: String
     },
-    liked: {
+    likes: {
         type: Array
     }
 

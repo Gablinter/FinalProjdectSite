@@ -27,6 +27,12 @@ router.post('/cartPage', async (req, res) => {
     res.json({ products: user.products })
 })
 
-
+router.post('/liked', async (req, res) => {
+    let result = await jwt.verify((req.body.token), 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
+    let username = result.username;
+    let like = userService.likeWatch(username, req.body.watchId)
+    // let user = userService.getUser(req.body.username);
+    // console.log(user)
+})
 
 module.exports = router;

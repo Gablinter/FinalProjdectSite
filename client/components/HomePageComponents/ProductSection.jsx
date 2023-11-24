@@ -28,9 +28,16 @@ export default function ProductSection() {
 
     function likeClickHandler(e) {
         let box = (e.target.parentElement.parentElement.parentElement.parentElement);
-        let id = (box.children[1].children[0].id)
+        let id = (box.children[1].children[0].id);
+        fetch('http://localhost:3000/posts/liked', {
+            method: 'POST',
+            body: JSON.stringify({ token: cookie.token, watchId: id }),
+            mode: 'cors',
+            headers: { "Content-Type": "application/json" }
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data))
 
-        
     }
 
     return (

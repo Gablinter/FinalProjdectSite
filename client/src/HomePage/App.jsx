@@ -6,9 +6,9 @@ import ProductSection from '../../components/HomePageComponents/ProductSection'
 import ContactSection from '../../components/HomePageComponents/ContactSection'
 import ClientSection from '../../components/HomePageComponents/ClientSection'
 import InfoSection from '../../components/HomePageComponents/InfoSection'
-import Footer from '../../components/HomePageComponents/Footer'
-  // import { useState } from 'react';
-  // import { useEffect } from 'react';
+import Footer from '../../components/HomePageComponents/Footer';
+// import { useState } from 'react';
+// import { useEffect } from 'react';
 
 export default function App() {
 
@@ -19,8 +19,6 @@ export default function App() {
       <ServiceSection />
       <AboutSection />
       <ProductSection />
-      {/* <FutureProductSection /> */}
-      {/* <NewArivals /> */}
       <ContactSection />
       <ClientSection />
       <InfoSection />

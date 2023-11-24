@@ -82,3 +82,12 @@ exports.getWatches = async (watchId) => {
     let watch = await Watch.findOne({ watchId })
     return watch;
 }
+
+exports.likeWatch = async (username, watchId) => {
+    let user = await User.findOne({ username });
+    user.likes.push(watchId)
+    user.save()
+    let watch = await Watch.findOne({ watchId });
+    watch.likes.push(user.username)
+    watch.save()
+}
