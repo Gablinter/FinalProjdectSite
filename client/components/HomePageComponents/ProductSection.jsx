@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useCookies } from "react-cookie";
+import { useState } from 'react';
 
 
 export default function ProductSection() {
 
     let [cookie, setCookie] = useCookies('[token]');
-
+    let [errorMessage, setErrorMessage] = useState(<></>)
 
 
 
@@ -16,6 +17,10 @@ export default function ProductSection() {
             watch: e.target.id
         }
         if (cookie.token !== undefined) {
+            e.target.textContent = "Added"
+            setTimeout(() => {
+                e.target.textContent = 'Add to cart'
+            }, 2500)
             fetch('http://localhost:3000/posts/addToCart', {
                 method: 'POST',
                 body: JSON.stringify(body),
@@ -36,14 +41,40 @@ export default function ProductSection() {
             headers: { "Content-Type": "application/json" }
         })
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            .then((data) => {
+                if (data.message !== 'Success') {
+                    let classId1 = ''
+                    if (data.watchId === '250' || data.watchId === '300' || data.watchId === '400') {
+                        classId1 = 'homeProductsErrorMessage';
+                    } else if (data.watchId === '410' || data.watchId === '350' || data.watchId === '200') {
+                        classId1 = 'homeProductsErrorMessage1';
+                    } else if (data.watchId === '190' || data.watchId === '310' || data.watchId === '390') {
+                        classId1 = 'homeProductsErrorMessage2';
+                    }
+                    setErrorMessage(
+                        <>
+                            <div>
+                                <p className={classId1}>{data.message}</p>
+                            </div>
+                        </>
+                    )
+                    setTimeout(() => {
+                        setErrorMessage(
+                            <>
+                            </>
+                        )
+                    }, 2500)
+                }
+            });
 
     }
 
     return (
         <>
             <section className="product_section ">
+
                 <div className="container">
+                    {errorMessage}
                     <div className="product_heading">
                         <h2>
                             Top Sale Watches

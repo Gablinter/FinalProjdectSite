@@ -30,9 +30,18 @@ router.post('/cartPage', async (req, res) => {
 router.post('/liked', async (req, res) => {
     let result = await jwt.verify((req.body.token), 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
     let username = result.username;
-    let like = userService.likeWatch(username, req.body.watchId)
-    // let user = userService.getUser(req.body.username);
-    // console.log(user)
+    let watch = await userService.getWatches(req.body.watchId);
+    if (!(watch.likes).includes(username)) {
+        let like = userService.likeWatch(username, req.body.watchId);
+        res.json({ message: 'Success', user: username, watch: req.body.watchId })
+    } else {
+        res.json({ message: "Already liked", watchId: req.body.watchId })
+    }
+})
+
+router.post('/likes', async (req, res) => {
+    let watch = await userService.getWatches(req.body.watchId);
+    res.json({ likes: watch.likes.length })
 })
 
 module.exports = router;
