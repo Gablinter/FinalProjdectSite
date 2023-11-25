@@ -63,6 +63,11 @@ export default function ProductSection() {
                             </>
                         )
                     }, 2500)
+                } else {
+                    e.target.textContent = 'Liked';
+                    setTimeout(() => {
+                        e.target.textContent = 'Like';
+                    }, 2500)
                 }
             });
 
