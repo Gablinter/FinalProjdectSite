@@ -43,6 +43,7 @@ router.post('/register', async (req, res) => {
         isPosted = true;
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
+        console.log(error)
         errorMessage = errorMessages
     }
 })
@@ -53,7 +54,7 @@ router.get('/registered', (req, res) => {
         res.json({ message: 'Success', messageTokenRegister, })
         messageTokenRegister = '';
     } else {
-        res.json({ message: errorMessage })
+        res.json({ errorMessage })
     }
 })
 

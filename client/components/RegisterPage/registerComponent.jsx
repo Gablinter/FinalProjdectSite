@@ -8,6 +8,7 @@ export default function LoginSection() {
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('')
     const [cookies, setCookie] = useCookies(["token"]);
+    const [errorMessage, setErrorMessage] = useState(<></>)
     const navigate = useNavigate()
 
     let body = {
@@ -35,10 +36,21 @@ export default function LoginSection() {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    if (data.message = 'Success') {
+                    if (data.message === 'Success') {
                         setCookie("token", data.messageTokenRegister, { path: '/' });
                         navigate('/')
+                    } else {
+
+                        setErrorMessage(
+                            <>
+                                <p className="loginErrorMessage">{data.errorMessage[0]}</p>
+                            </>
+                        )
+                        setTimeout(() => {
+                            setErrorMessage(<></>)
+                        }, 3000)
                     }
+
                 })
 
         }, 100)
@@ -70,6 +82,7 @@ export default function LoginSection() {
 
         <div className="limiter">
             <div className="background-image">
+                {errorMessage}
                 <div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
                     <form action="POST" onSubmit={formSubmitHandler} className="login100-form validate-form flex-sb flex-w">
                         <span className="login100-form-title p-b-53">

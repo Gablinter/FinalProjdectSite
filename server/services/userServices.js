@@ -42,16 +42,24 @@ exports.login = async (username, password) => {
 exports.register = async (userData) => {
     let password = userData.password;
     let repeatPassword = userData.repeatPassword;
+    let username = userData.username
+    if (username === '') {
+        throw new Error('Username is required!');
+    }
     if (password === '') {
         throw new Error('Password is required')
     }
     if (password.length < 4) {
         throw new Error('Password should be at least 4 characters long')
     }
+    let user = await User.findOne({ username });
+    if (user !== null) {
+        throw new Error(`User already exists`)
+    }
     if (password === repeatPassword) {
         let cryptedPassword = await bcrypt.hash(password, 10);
         userData.password = cryptedPassword;
-        return User.create(userData);
+        return await User.create(userData);
 
     } else {
         throw new Error(`Password don't match`);
