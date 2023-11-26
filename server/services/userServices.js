@@ -10,10 +10,17 @@ let SECRET = `f0e95d18-feb8-4561-ae18-d3cd41b749d5`;
 exports.login = async (username, password) => {
     const user = await User.findOne({ username });
 
+    if (username === '') {
+        throw new Error('Username is required');
+    }
+
     if (!user) {
         throw new Error('Invalid username or password');
     }
 
+    if (password === '') {
+        throw new Error('Password is required');
+    }
 
     const isValid = await bcrypt.compare(password, user.password)
 

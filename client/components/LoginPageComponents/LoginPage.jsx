@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 export default function LoginSection() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState(<></>)
     const [cookies, setCookie] = useCookies(["token"]);
     const navigate = useNavigate()
 
@@ -31,9 +32,18 @@ export default function LoginSection() {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    if (data.message = 'Success') {
+                    if (data.message === 'Success') {
                         setCookie("token", data.messageToken, { path: '/' });
                         navigate('/')
+                    } else {
+                        setErrorMessage(
+                            <>
+                                <p className="loginErrorMessage">{data.errorMessage[0]}</p>
+                            </>
+                        )
+                        setTimeout(() => {
+                            setErrorMessage(<></>)
+                        }, 3000)
                     }
                 })
         }, 100)
@@ -54,6 +64,7 @@ export default function LoginSection() {
 
         <div className="limiter">
             <div className="background-image">
+                {errorMessage}
                 <div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
                     <form action="POST" onSubmit={formSubmitHandler} className="login100-form validate-form flex-sb flex-w">
                         <span className="login100-form-title p-b-53">

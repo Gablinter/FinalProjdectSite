@@ -20,13 +20,15 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
         isValid = false;
-        errorMessage = errorMessages
+        errorMessage = errorMessages;
     }
 })
 
 router.get('/loggedin', async (req, res) => {
     if (isValid) {
         res.json({ message: 'Success', messageToken, })
+    } else {
+        res.json({ errorMessage })
     }
 })
 
