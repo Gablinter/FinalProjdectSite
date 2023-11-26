@@ -27,6 +27,30 @@ export default function ProductSection() {
                 mode: 'cors',
                 headers: { "Content-Type": "application/json" }
             })
+        } else {
+            let classId1 = ''
+            if (e.target.id === '250' || e.target.id === '300' || e.target.id === '400') {
+                classId1 = 'homeProductsErrorMessageAdd';
+            } else if (e.target.id === '410' || e.target.id === '350' || e.target.id === '200') {
+                classId1 = 'homeProductsErrorMessage1Add';
+            } else if (e.target.id === '190' || e.target.id === '310' || e.target.id === '390') {
+                classId1 = 'homeProductsErrorMessage2Add';
+            }
+            console.log(classId1)
+
+            setErrorMessage(
+                <>
+                    <div>
+                        <p className={classId1}>Login to add to cart</p>
+                    </div>
+                </>
+            )
+            setTimeout(() => {
+                setErrorMessage(
+                    <>
+                    </>
+                )
+            }, 2500)
         }
     }
 
@@ -70,7 +94,7 @@ export default function ProductSection() {
                         e.target.textContent = 'Like';
                     }, 2500)
                 }
-                
+
             });
 
     }

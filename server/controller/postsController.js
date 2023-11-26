@@ -28,6 +28,10 @@ router.post('/cartPage', async (req, res) => {
 })
 
 router.post('/liked', async (req, res) => {
+    if (req.body.token === undefined) {
+        res.json({ message: "Login in order to like", watchId: req.body.watchId });
+        return;
+    }
     let result = await jwt.verify((req.body.token), 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
     let username = result.username;
     let watch = await userService.getWatches(req.body.watchId);
