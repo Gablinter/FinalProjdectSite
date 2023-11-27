@@ -43,7 +43,6 @@ router.post('/register', async (req, res) => {
         isPosted = true;
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        console.log(error)
         errorMessage = errorMessages
     }
 })

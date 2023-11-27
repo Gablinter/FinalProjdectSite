@@ -2,9 +2,17 @@ let router = require('express').Router();
 let ticketServers = require('../services/ticketServices');
 let userService = require('../services/userServices');
 let jwt = require('../lib/jwt')
+const { extractErrorMsgs } = require('../utils/errorHandeling');
 
 router.post('/tickets', (req, res) => {
-    ticketServers.create(req.body.body)
+    try {
+        ticketServers.create(req.body.body)
+        res.json({message: 'Success'})
+    } catch (e) {
+        const errorMessages = extractErrorMsgs(e);
+        res.json({ message: errorMessages[0] })
+    }
+
 })
 
 

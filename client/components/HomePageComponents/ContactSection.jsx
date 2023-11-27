@@ -6,6 +6,7 @@ export default function ContactSection() {
     let [phoneNumber, setPhoneNumber] = useState('');
     let [email, setEmail] = useState('');
     let [message, setMessage] = useState('');
+    let [errorMessage, setErrorMessage] = useState(<></>)
 
     let body = {
         name,
@@ -17,7 +18,6 @@ export default function ContactSection() {
     function formSubmiteHanlder(e) {
         e.preventDefault();
         let btn = document.getElementById('submitBtnContact');
-        btn.textContent = 'SUCCESSFULLY SENT';
         fetch('http://localhost:3000/posts/tickets', {
             method: "POST",
             body: JSON.stringify({
@@ -25,13 +25,35 @@ export default function ContactSection() {
             }),
             headers: { 'Content-Type': "application/json" }
         })
-        setName('')
-        setPhoneNumber('')
-        setEmail('')
-        setMessage('')
-        setTimeout(() => {
-            btn.textContent = 'SEND';
-        }, 5000)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.message !== 'Success') {
+                    console.log(data.message)
+                    setErrorMessage(
+                        <>
+                            <p className="contactErorMessage">{data.message}</p>
+                        </>
+                    )
+
+                    setTimeout(() => {
+                        setErrorMessage(
+                            <>
+                            </>
+                        )
+                    }, 2500)
+                } else {
+                    console.log('Raboti')
+                    btn.textContent = 'SUCCESSFULLY SENT';
+                    setName('')
+                    setPhoneNumber('')
+                    setEmail('')
+                    setMessage('')
+                    setTimeout(() => {
+                        btn.textContent = 'SEND';
+                    }, 5000)
+
+                }
+            })
 
 
 
@@ -57,6 +79,7 @@ export default function ContactSection() {
     return (
         <section className="contact_section layout_padding">
             <div className="container">
+                {errorMessage}
                 <div className="heading_container">
                     <h2>
                         Contact Us
@@ -90,7 +113,7 @@ export default function ContactSection() {
                         <div className="map_container">
                             <div className="map">
                                 <div id="googleMap">
-                                    
+
                                 </div>
                             </div>
                         </div>
