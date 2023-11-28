@@ -14,6 +14,12 @@ exports.login = async (username, password) => {
         throw new Error('Username is required');
     }
 
+    let usernameRegex = /[a-zA-z0-9]+/;
+    let matchUsername = username.match(usernameRegex);
+    if (matchUsername[0] !== matchUsername.input) {
+        throw new Error(`Username must be 1 word consisting only of letters and numbers`)
+    }
+
     if (!user) {
         throw new Error('Invalid username or password');
     }
@@ -42,16 +48,25 @@ exports.login = async (username, password) => {
 exports.register = async (userData) => {
     let password = userData.password;
     let repeatPassword = userData.repeatPassword;
-    let username = userData.username
+    let username = userData.username;
     if (username === '') {
         throw new Error('Username is required!');
     }
     if (password === '') {
         throw new Error('Password is required')
     }
+
     if (password.length < 4) {
         throw new Error('Password should be at least 4 characters long')
     }
+
+    let usernameRegex = /[a-zA-z0-9]+/;
+    let matchUsername = username.match(usernameRegex);
+    if (matchUsername[0] !== matchUsername.input) {
+        throw new Error(`Username must be 1 word consisting only of letters and numbers`)
+    }
+
+
     let user = await User.findOne({ username });
     if (user !== null) {
         throw new Error(`User already exists`)
