@@ -392,16 +392,16 @@ export default function CartPage() {
                                                 </div>
                                                 <p className="small mb-2">Card type</p>
                                                 <a href="#!" type="submit" className="text-white">
-                                                    <i className="fab fa-cc-mastercard fa-2x me-2" />
+                                                    <img className='cartPageMasterCardLogo' src="../../public/dist/images/mastercardLogo.webp" />
                                                 </a>
                                                 <a href="#!" type="submit" className="text-white">
-                                                    <i className="fab fa-cc-visa fa-2x me-2" />
+                                                    <img className='cartPageVisaLogo' src="../../public/dist/images/visaLogo.jpg" />
                                                 </a>
                                                 <a href="#!" type="submit" className="text-white">
-                                                    <i className="fab fa-cc-amex fa-2x me-2" />
+                                                    <img className='cartPageAmexLogo' src="../../public/dist/images/amexLogo.png" />
                                                 </a>
                                                 <a href="#!" type="submit" className="text-white">
-                                                    <i className="fab fa-cc-paypal fa-2x" />
+                                                    <img className='cartPagePaypalLogo' src="../../public/dist/images/paypalLogo.jpg" />
                                                 </a>
                                                 <form className="mt-4">
                                                     <div className="form-outline form-white mb-4">
