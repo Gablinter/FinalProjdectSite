@@ -124,7 +124,7 @@ export default function ContactSection() {
                                 <div id="googleMap">
                                     <div style={{ height: '100vh', width: '100%' }}>
                                         <GoogleMapReact
-                                            bootstrapURLKeys={{key: "AIzaSyDB3-r8KWTgnW5HwvI3wiY2yN3YYNxzoIk"}}
+                                            bootstrapURLKeys={{key: ""}}
                                             defaultCenter={defaultProps.center}
                                             defaultZoom={defaultProps.zoom}
                                         >
