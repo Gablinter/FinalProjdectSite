@@ -1,4 +1,5 @@
 import { useState } from "react"
+import GoogleMapReact from 'google-map-react';
 
 export default function ContactSection() {
 
@@ -58,6 +59,14 @@ export default function ContactSection() {
 
 
     }
+    const AnyReactComponent = ({ text }) => <div>{text}</div>;
+    const defaultProps = {
+        center: {
+            lat: 42.649068,
+            lng: 23.344907
+        },
+        zoom: 11,
+    };
 
 
     function nameChangeHandler(e) {
@@ -113,7 +122,19 @@ export default function ContactSection() {
                         <div className="map_container">
                             <div className="map">
                                 <div id="googleMap">
-
+                                    <div style={{ height: '100vh', width: '100%' }}>
+                                        <GoogleMapReact
+                                            bootstrapURLKeys={{key: "AIzaSyDB3-r8KWTgnW5HwvI3wiY2yN3YYNxzoIk"}}
+                                            defaultCenter={defaultProps.center}
+                                            defaultZoom={defaultProps.zoom}
+                                        >
+                                            <AnyReactComponent
+                                                lat={42.649068}
+                                                lng={23.344907}
+                                                text="My Marker"
+                                            />
+                                        </GoogleMapReact>
+                                    </div>
                                 </div>
                             </div>
                         </div>
