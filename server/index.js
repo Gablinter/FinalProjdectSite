@@ -5,7 +5,7 @@ let router = require('./router');
 let cookieParser = require('cookie-parser');
 
 let app = express();
-let cors = require('cors')
+let cors = require('cors');
 const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

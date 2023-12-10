@@ -25,7 +25,7 @@ exports.create = (body) => {
     }
 
 
-    let messageRegex = /[a-zA-z1-9. ,]+/;
+    let messageRegex = /[a-zA-z1-9. ,?!]+/;
     let matchMessage = (body.message.match(messageRegex));
     if (matchMessage.input !== matchMessage[0]) {
         throw new Error('Message may only consist of letters and numbers');
