@@ -23,7 +23,7 @@ export default function About() {
                                 There are many variations of
                                 passages of Lorem Ipsum
                             </p>
-                            <a href="about.html">
+                            <a href="/about">
                                 Read More
                             </a>
                         </div>
