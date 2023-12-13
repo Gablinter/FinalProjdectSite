@@ -7,7 +7,7 @@ const { extractErrorMsgs } = require('../utils/errorHandeling');
 router.post('/tickets', (req, res) => {
     try {
         ticketServers.create(req.body.body)
-        res.json({message: 'Success'})
+        res.json({ message: 'Success' })
     } catch (e) {
         const errorMessages = extractErrorMsgs(e);
         res.json({ message: errorMessages[0] })
@@ -55,5 +55,31 @@ router.post('/likes', async (req, res) => {
     let watch = await userService.getWatches(req.body.watchId);
     res.json({ likes: watch.likes.length })
 })
+
+//DELETE METHOD
+
+router.delete('/watches/:watch/:cookies', async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "DELETE");
+    let { watch } = req.params;
+    let { cookies } = req.params;
+
+
+    let result = await jwt.verify((cookies), 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
+    let username = result.username;
+    let user = await userService.getUser(username);
+
+    let watchId = watch.split('deleteFromCartPage')[1];
+
+
+   
+
+    let delated = await userService.getByUsernameAndDelete(username, watchId);
+   
+    
+    res.json({ message: "Gabro", products: delated.products })
+})
+
+
 
 module.exports = router;

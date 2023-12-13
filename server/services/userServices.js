@@ -103,6 +103,14 @@ exports.getByUsernameAndUpdate = async (username, id) => {
     return user;
 }
 
+exports.getByUsernameAndDelete = async (username, watchId) => {
+    let user = await User.findOne({ username });
+    let productIndex = user.products.findIndex((element) => element == watchId);
+    user.products.splice(productIndex, 1)
+    user.save()
+    return user;
+}
+
 exports.getUser = async (username,) => {
     let user = await User.findOne({ username })
     return user;

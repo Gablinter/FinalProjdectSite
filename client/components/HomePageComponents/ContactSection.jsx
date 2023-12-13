@@ -29,7 +29,6 @@ export default function ContactSection() {
             .then((res) => res.json())
             .then((data) => {
                 if (data.message !== 'Success') {
-                    console.log(data.message)
                     setErrorMessage(
                         <>
                             <p className="contactErorMessage">{data.message}</p>
@@ -43,7 +42,6 @@ export default function ContactSection() {
                         )
                     }, 2500)
                 } else {
-                    console.log('Raboti')
                     btn.textContent = 'SUCCESSFULLY SENT';
                     setName('')
                     setPhoneNumber('')

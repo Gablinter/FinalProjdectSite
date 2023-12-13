@@ -21,15 +21,38 @@ export default function CartPage() {
             .then((data) => {
                 setProducts(data.products);
                 let sum = data.products;
-                sum.map((x) => {
-                    setPrice(y =>
-                        Number(y) + Number(x))
-
-                })
+                let price = 0;
+                sum.map((x) => price+= Number(x))
+                setPrice(price)
             }
             );
-    }, [])
-    console.log
+    }, []);
+
+    // useEffect(() => {
+    //    console.log(`There has been a change`)
+    // }, [products]);
+
+    async function delteWatchHandler(e) {
+        let watchId = e.target.className;
+        fetch(`http://localhost:3000/posts/watches/${watchId}/${cookie.token}`, {
+            method: "DELETE",
+            mode: "cors",
+            // body: JSON.stringify({
+            //     cookie: cookie
+            // }),
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data.products);
+                let sum = data.products;
+                let price = 0;
+                sum.map((x) => price+= Number(x))
+                setPrice(price)
+            })
+    }
 
 
 
@@ -88,9 +111,12 @@ export default function CartPage() {
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
                                                             </div>
+                                                            <p className="deleteFromCartPage250" onClick={delteWatchHandler}>X</p>
                                                         </div>
                                                     </div>
+
                                                 </div>
+
                                             </>
                                         }
                                         {products.includes('300') &&
@@ -122,6 +148,7 @@ export default function CartPage() {
                                                                 <a href="#!" style={{ color: "#cecece" }}>
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
+                                                                <p className="deleteFromCartPage300" onClick={delteWatchHandler}>X</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -157,6 +184,7 @@ export default function CartPage() {
                                                                 <a href="#!" style={{ color: "#cecece" }}>
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
+                                                                <p className="deleteFromCartPage400" onClick={delteWatchHandler}>X</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -192,6 +220,7 @@ export default function CartPage() {
                                                                 <a href="#!" style={{ color: "#cecece" }}>
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
+                                                                <p className="deleteFromCartPage410" onClick={delteWatchHandler}>X</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -227,6 +256,7 @@ export default function CartPage() {
                                                                 <a href="#!" style={{ color: "#cecece" }}>
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
+                                                                <p className="deleteFromCartPage350" onClick={delteWatchHandler}>X</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -262,6 +292,7 @@ export default function CartPage() {
                                                                 <a href="#!" style={{ color: "#cecece" }}>
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
+                                                                <p className="deleteFromCartPage200" onClick={delteWatchHandler}>X</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -297,6 +328,7 @@ export default function CartPage() {
                                                                 <a href="#!" style={{ color: "#cecece" }}>
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
+                                                                <p className="deleteFromCartPage190" onClick={delteWatchHandler}>X</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -332,6 +364,7 @@ export default function CartPage() {
                                                                 <a href="#!" style={{ color: "#cecece" }}>
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
+                                                                <p className="deleteFromCartPage310" onClick={delteWatchHandler}>X</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -367,6 +400,7 @@ export default function CartPage() {
                                                                 <a href="#!" style={{ color: "#cecece" }}>
                                                                     <i className="fas fa-trash-alt" />
                                                                 </a>
+                                                                <p className="deleteFromCartPage390" onClick={delteWatchHandler}>X</p>
                                                             </div>
                                                         </div>
                                                     </div>
