@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useCookies } from "react-cookie";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function ProductSection() {
@@ -8,7 +8,37 @@ export default function ProductSection() {
     let [cookie, setCookie] = useCookies('[token]');
     let [errorMessage, setErrorMessage] = useState(<></>)
 
-
+    useEffect(() => {
+        fetch(`http://localhost:3000/posts/likes/${cookie.token}`, {
+            method: 'GET',
+            mode: 'cors',
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(res => res.json())
+            .then(result => {
+                result.likes.map((x) => {
+                    if (x === '250') {
+                        document.getElementById('like250').textContent = 'Unlike'
+                    } else if (x === '300') {
+                        document.getElementById('like300').textContent = 'Unlike'
+                    } else if (x === '400') {
+                        document.getElementById('like400').textContent = 'Unlike'
+                    } else if (x === '410') {
+                        document.getElementById('like410').textContent = 'Unlike'
+                    } else if (x === '350') {
+                        document.getElementById('like350').textContent = 'Unlike'
+                    } else if (x === '200') {
+                        document.getElementById('like200').textContent = 'Unlike'
+                    } else if (x === '190') {
+                        document.getElementById('like190').textContent = 'Unlike'
+                    } else if (x === '310') {
+                        document.getElementById('like310').textContent = 'Unlike'
+                    } else if (x === '390') {
+                        document.getElementById('like390').textContent = 'Unlike'
+                    }
+                })
+            })
+    }, [])
 
     async function addToCartHandler(e) {
         e.preventDefault()
@@ -67,32 +97,45 @@ export default function ProductSection() {
             .then((res) => res.json())
             .then((data) => {
                 if (data.message !== 'Success') {
-                    let classId1 = ''
-                    if (data.watchId === '250' || data.watchId === '300' || data.watchId === '400') {
-                        classId1 = 'homeProductsErrorMessage';
-                    } else if (data.watchId === '410' || data.watchId === '350' || data.watchId === '200') {
-                        classId1 = 'homeProductsErrorMessage1';
-                    } else if (data.watchId === '190' || data.watchId === '310' || data.watchId === '390') {
-                        classId1 = 'homeProductsErrorMessage2';
-                    }
-                    setErrorMessage(
-                        <>
-                            <div>
-                                <p className={classId1}>{data.message}</p>
-                            </div>
-                        </>
-                    )
-                    setTimeout(() => {
+                    if (data.message === 'Login in order to like') {
+                        let classId1 = ''
+                        if (data.watchId === '250' || data.watchId === '300' || data.watchId === '400') {
+                            classId1 = 'homeProductsErrorMessage';
+                        } else if (data.watchId === '410' || data.watchId === '350' || data.watchId === '200') {
+                            classId1 = 'homeProductsErrorMessage1';
+                        } else if (data.watchId === '190' || data.watchId === '310' || data.watchId === '390') {
+                            classId1 = 'homeProductsErrorMessage2';
+                        }
                         setErrorMessage(
                             <>
+                                <div>
+                                    <p className={classId1}>{data.message}</p>
+                                </div>
                             </>
                         )
-                    }, 2500)
+                        setTimeout(() => {
+                            setErrorMessage(
+                                <>
+                                </>
+                            )
+                        }, 2500)
+                    } else {
+                        fetch('http://localhost:3000/posts/unlike', {
+                            method: 'PUT',
+                            body: JSON.stringify({ token: cookie.token, watchId: id }),
+                            mode: 'cors',
+                            headers: { "Content-Type": "application/json" }
+                        })
+                            .then(res => res.json())
+                            .then(result => {
+                                if (result.message === 'Success') {
+                                    e.target.textContent = 'Like';
+                                }
+                            })
+                    }
+
                 } else {
-                    e.target.textContent = 'Liked';
-                    setTimeout(() => {
-                        e.target.textContent = 'Like';
-                    }, 2500)
+                    e.target.textContent = 'Unlike';
                 }
 
             });
@@ -126,7 +169,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like250">
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -160,7 +203,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like300">
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -194,7 +237,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like400">
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -240,7 +283,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like410">
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -274,7 +317,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like350">
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -308,7 +351,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like200">
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -355,7 +398,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like190">
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -389,7 +432,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like310">
                                             Like
                                         </h6>
                                         <div className="star_container">
@@ -423,7 +466,7 @@ export default function ProductSection() {
                                         </h5>
                                     </div>
                                     <div className="like">
-                                        <h6 onClick={likeClickHandler}>
+                                        <h6 onClick={likeClickHandler} id="like390">
                                             Like
                                         </h6>
                                         <div className="star_container">

@@ -111,6 +111,18 @@ exports.getByUsernameAndDelete = async (username, watchId) => {
     return user;
 }
 
+exports.unlike = async (username, watchId) => {
+    let user = await User.findOne({ username });
+    let likeIndex = user.likes.findIndex((element) => element == watchId);
+    user.likes.splice(likeIndex, 1)
+    user.save()
+    let watch = await Watch.findOne({ watchId });
+    let nameIndex = user.likes.findIndex((element) => element == username);
+    watch.likes.splice(nameIndex, 1)
+    watch.save()
+    return user;
+}
+
 exports.getUser = async (username,) => {
     let user = await User.findOne({ username })
     return user;
@@ -128,4 +140,9 @@ exports.likeWatch = async (username, watchId) => {
     let watch = await Watch.findOne({ watchId });
     watch.likes.push(user.username)
     watch.save()
+}
+
+exports.getLikes = async (username) => {
+    let user = await User.findOne({ username });
+    return user;
 }

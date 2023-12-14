@@ -51,6 +51,21 @@ router.post('/liked', async (req, res) => {
     }
 })
 
+router.put('/unlike', async (req, res) => {
+    if (req.body.token === undefined) {
+        res.json({ message: "Login in order to unlike", watchId: req.body.watchId });
+        return;
+    }
+    let result = await jwt.verify((req.body.token), 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
+    let username = result.username;
+
+
+    let unlike = await userService.unlike(username, req.body.watchId);
+    res.json({ message: 'Success', user: username, watch: req.body.watchId })
+
+})
+
+
 router.post('/likes', async (req, res) => {
     let watch = await userService.getWatches(req.body.watchId);
     res.json({ likes: watch.likes.length })
@@ -72,12 +87,31 @@ router.delete('/watches/:watch/:cookies', async (req, res) => {
     let watchId = watch.split('deleteFromCartPage')[1];
 
 
-   
+
 
     let delated = await userService.getByUsernameAndDelete(username, watchId);
-   
-    
+
+
     res.json({ message: "Gabro", products: delated.products })
+})
+
+
+router.get('/likes/:cookies', async (req, res) => {
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    // res.setHeader("Access-Control-Allow-Methods", "DELETE");
+    // let { watch } = req.params;
+    let { cookies } = req.params;
+
+
+    let result = await jwt.verify((cookies), 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
+    let username = result.username;
+
+
+
+
+    let userLikes= await userService.getLikes(username);
+
+    res.json({ message: "Gabro", likes: userLikes.likes})
 })
 
 
