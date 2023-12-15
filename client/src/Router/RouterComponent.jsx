@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import About from '../AboptPage/AboutComponent';
 import Products from '../ProductPage/ProductsComponent';
 import HomePage from '../HomePage/App';
@@ -9,10 +9,14 @@ import ReadMore from '../../pages/readMorePage';
 import RegisterPage from '../RegisterPage/App'
 import CartPage from '../CartPage/App';
 import NotFound from '../404Page/App';
+//  import { useEffect, useState } from 'react';
+// import { useCookies } from "react-cookie";
 // import { useEffect, useState } from 'react';
 
-
 export default function App() {
+
+
+    
 
 
     return (
@@ -30,3 +34,4 @@ export default function App() {
         </Routes>
     )
 }
+

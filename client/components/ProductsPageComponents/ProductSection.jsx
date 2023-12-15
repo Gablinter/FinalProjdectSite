@@ -8,35 +8,38 @@ export default function ProductSection() {
     let [errorMessage, setErrorMessage] = useState(<></>)
 
     useEffect(() => {
-        fetch(`http://localhost:3000/posts/likes/${cookie.token}`, {
-            method: 'GET',
-            mode: 'cors',
-            headers: { "Content-Type": "application/json" }
-        })
-            .then(res => res.json())
-            .then(result => {
-                result.likes.map((x) => {
-                    if (x === '250') {
-                        document.getElementById('like250').textContent = 'Unlike'
-                    } else if (x === '300') {
-                        document.getElementById('like300').textContent = 'Unlike'
-                    } else if (x === '400') {
-                        document.getElementById('like400').textContent = 'Unlike'
-                    } else if (x === '410') {
-                        document.getElementById('like410').textContent = 'Unlike'
-                    } else if (x === '350') {
-                        document.getElementById('like350').textContent = 'Unlike'
-                    } else if (x === '200') {
-                        document.getElementById('like200').textContent = 'Unlike'
-                    } else if (x === '190') {
-                        document.getElementById('like190').textContent = 'Unlike'
-                    } else if (x === '310') {
-                        document.getElementById('like310').textContent = 'Unlike'
-                    } else if (x === '390') {
-                        document.getElementById('like390').textContent = 'Unlike'
-                    }
-                })
+        if (cookie.token !== undefined) {
+
+            fetch(`http://localhost:3000/posts/likes/${cookie.token}`, {
+                method: 'GET',
+                mode: 'cors',
+                headers: { "Content-Type": "application/json" }
             })
+                .then(res => res.json())
+                .then(result => {
+                    result.likes.map((x) => {
+                        if (x === '250') {
+                            document.getElementById('like250').textContent = 'Unlike'
+                        } else if (x === '300') {
+                            document.getElementById('like300').textContent = 'Unlike'
+                        } else if (x === '400') {
+                            document.getElementById('like400').textContent = 'Unlike'
+                        } else if (x === '410') {
+                            document.getElementById('like410').textContent = 'Unlike'
+                        } else if (x === '350') {
+                            document.getElementById('like350').textContent = 'Unlike'
+                        } else if (x === '200') {
+                            document.getElementById('like200').textContent = 'Unlike'
+                        } else if (x === '190') {
+                            document.getElementById('like190').textContent = 'Unlike'
+                        } else if (x === '310') {
+                            document.getElementById('like310').textContent = 'Unlike'
+                        } else if (x === '390') {
+                            document.getElementById('like390').textContent = 'Unlike'
+                        }
+                    })
+                })
+        }
     }, [])
 
     async function addToCartHandler(e) {
