@@ -9,14 +9,12 @@ import ReadMore from '../../pages/readMorePage';
 import RegisterPage from '../RegisterPage/App'
 import CartPage from '../CartPage/App';
 import NotFound from '../404Page/App';
-//  import { useEffect, useState } from 'react';
-// import { useCookies } from "react-cookie";
-// import { useEffect, useState } from 'react';
+import AuthGuard from "../guards/AuthGuard";
 
 export default function App() {
 
 
-    
+
 
 
     return (
@@ -29,7 +27,7 @@ export default function App() {
             <Route path="/readMore" element={<ReadMore />} />
             <Route path="/users/login" element={<LoginPage />} />
             <Route path="/users/register" element={<RegisterPage />} />
-            <Route path="/cartPage" element={<CartPage />} />
+            <Route path="/cartPage" element={<AuthGuard> <CartPage /></AuthGuard>} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     )
