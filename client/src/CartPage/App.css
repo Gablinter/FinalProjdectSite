@@ -1,0 +1,157 @@
+.cartPagePaypalLogo {
+  width: 30px;
+  padding-left: 3px;
+  position: relative;
+  bottom: 10px;
+}
+
+.cartPageAmexLogo {
+  width: 40px;
+  position: relative;
+  bottom: 10px;
+}
+
+.cartPageMasterCardLogo {
+  width: 40px;
+  position: relative;
+  bottom: 10px;
+}
+
+.cartPageVisaLogo {
+  width: 57px;
+  padding-left: 3px;
+  padding-right: 3px;
+  position: relative;
+  bottom: 10px;
+}
+
+#cartImage1 {
+  width: 65px;
+  position: relative;
+  right: 10px;
+}
+
+.deleteFromCartPage250 {
+  position: relative;
+  top: 28px;
+}
+
+.deleteFromCartPage250:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deleteFromCartPage300 {
+  position: relative;
+  top: 10px;
+}
+
+.deleteFromCartPage300:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deleteFromCartPage400 {
+  position: relative;
+  top: 10px;
+}
+
+.deleteFromCartPage400:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deleteFromCartPage410 {
+  position: relative;
+  top: 10px;
+}
+
+.deleteFromCartPage410:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deleteFromCartPage350 {
+  position: relative;
+  top: 10px;
+}
+
+.deleteFromCartPage350:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deleteFromCartPage200 {
+  position: relative;
+  top: 10px;
+}
+
+.deleteFromCartPage200:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deleteFromCartPage190 {
+  position: relative;
+  top: 10px;
+}
+
+.deleteFromCartPage190:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deleteFromCartPage310 {
+  position: relative;
+  top: 10px;
+}
+
+.deleteFromCartPage310:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deleteFromCartPage390 {
+  position: relative;
+  top: 10px;
+}
+
+.deleteFromCartPage390:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.priceStyle {
+  position: relative;
+  right: 70px;
+}
+
+#shoppingCart {
+  position: relative;
+  right: 10px;
+  top: 7px;
+}
+
+#logout-button {
+  border-radius: 5px;
+  position: relative;
+  right: 8px;
+  background-color: white;
+  color: #000000;
+}
+
+#logout-button:hover {
+  color: #ffffff;
+  background-color: #8019c8;
+}
+
+#logoutButton {
+  border-radius: 5px;
+  background-color: white;
+  border: none;
+}
+
+/* #logoutButton:hover {
+  color: #ffffff;
+  background-color: #8019c8;
+} */

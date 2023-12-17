@@ -20,7 +20,6 @@ export default function ContactSection() {
     function formSubmiteHanlder(e) {
         e.preventDefault();
         let btn = document.getElementById('sendTicket');
-        btn.textContent = 'SUCCESSFULLY SENT';
         fetch('http://localhost:3000/posts/tickets', {
             method: "POST",
             body: JSON.stringify({
@@ -31,7 +30,6 @@ export default function ContactSection() {
             .then((res) => res.json())
             .then((data) => {
                 if (data.message !== 'Success') {
-                    console.log(data.message)
                     setErrorMessage(
                         <>
                             <p className="contactErorMessage">{data.message}</p>
@@ -44,8 +42,7 @@ export default function ContactSection() {
                             </>
                         )
                     }, 2500)
-                } else {
-                    console.log('Raboti')
+                } else if (data.message === "Success") {
                     btn.textContent = 'SUCCESSFULLY SENT';
                     setName('')
                     setPhoneNumber('')
@@ -84,6 +81,8 @@ export default function ContactSection() {
     function messageChangeHandler(e) {
         setMessage(e.target.value);
     }
+
+
     return (
         <section className="contact_section layout_padding">
             <div className="container">
@@ -121,9 +120,9 @@ export default function ContactSection() {
                         <div className="map_container">
                             <div className="map">
                                 <div id="googleMap">
-                                <div style={{ height: '100vh', width: '100%' }}>
+                                    <div style={{ height: '100vh', width: '100%' }}>
                                         <GoogleMapReact
-                                            bootstrapURLKeys={{key: ""}}
+                                            bootstrapURLKeys={{ key: "" }}
                                             defaultCenter={defaultProps.center}
                                             defaultZoom={defaultProps.zoom}
                                         >

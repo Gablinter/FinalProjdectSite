@@ -1,3 +1,5 @@
+import '../../src/TestemonialsPage/Testemonials.css'
+
 export default function Testemonial() {
     return (
         <section className="client_section layout_padding">

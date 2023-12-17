@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
+import '../../src/CartPage/App.css'
 
 export default function CartPage() {
     let [cookie, setCookie] = useCookies('[token]')

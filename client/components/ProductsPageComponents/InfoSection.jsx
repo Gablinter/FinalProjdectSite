@@ -1,10 +1,12 @@
+import '../../src/ContactUsPage/App.css'
+
 export default function InfoSection() {
     return (
         <section className="info_section layout_padding2">
             <div className="container">
                 <div className="info_logo">
                     <h2>
-                        HandTime
+                        WatchWonders
                     </h2>
                 </div>
                 <div className="row">

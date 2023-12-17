@@ -1,3 +1,5 @@
+import '../../src/HomePage/Home.css'
+
 export default function ServiceSection() {
     return (
 

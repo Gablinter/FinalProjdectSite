@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
-
+import '../../src/LoginPage/Login.css'
 
 export default function LoginSection() {
     const [username, setUsername] = useState('');

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useState, useEffect } from "react";
+import '../../src/ProductPage/Products.css'
 
 export default function ProductSection() {
 

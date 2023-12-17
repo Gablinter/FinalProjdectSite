@@ -1,17 +1,25 @@
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function ReadMoreComponent() {
+    let naviagte = useNavigate();
+
+    function redirectHandled() {
+
+        naviagte('/catalog')
+    }
+
     return (
         <>
             <div className="readMore-row">
                 <div className='img-1-div'>
                     <img className="img-1" src="../../public/dist/images/a-1.jpg" />
-                    <button className='shopNow1'>Show Now</button>
+                    <button onClick={redirectHandled} className='shopNow1'>Show Now</button>
                 </div>
                 <div className="readMore-column">
                     <div className='img-2-div'>
                         <img className="img-2" src="../../public/dist/images/a-2.jpg" />
-                        <button className='shopNow'>Show Now</button>
+                        <button onClick={redirectHandled} className='shopNow'>Show Now</button>
                     </div>
                 </div>
             </div>
