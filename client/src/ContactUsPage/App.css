@@ -208,3 +208,22 @@
     left: 215px;
     margin-right: 815px;
 }
+
+.editButton {
+    background-color: #8019c8;
+    text-align: center;
+    font-size: large;
+    border-radius: 9px;
+    color: white;
+    position: relative;
+    left: 300px;
+    bottom: 50px;
+    margin-right: 815px;
+}
+
+.deleteButton {
+    position: relative;
+    left: 200px;
+    bottom: 48px;
+    margin-right: 815px;
+}

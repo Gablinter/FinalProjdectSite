@@ -1,13 +1,14 @@
 let router = require('express').Router();
-let ticketServers = require('../services/ticketServices');
+let ticketServices = require('../services/ticketServices');
 let userService = require('../services/userServices');
 let jwt = require('../lib/jwt')
 const { extractErrorMsgs } = require('../utils/errorHandeling');
 
-router.post('/tickets', (req, res) => {
+router.post('/tickets', async (req, res) => {
     try {
-        ticketServers.create(req.body.body)
-        res.json({ message: 'Success' })
+        let info = await ticketServices.create(req.body.body)
+        let id = info._id.toString()
+        res.json({ message: 'Success', id })
     } catch (e) {
         const errorMessages = extractErrorMsgs(e);
         res.json({ message: errorMessages[0] })
@@ -109,11 +110,51 @@ router.get('/likes/:cookies', async (req, res) => {
 
 
 
-    let userLikes= await userService.getLikes(username);
+    let userLikes = await userService.getLikes(username);
 
-    res.json({ message: "Gabro", likes: userLikes.likes})
+    res.json({ message: "Gabro", likes: userLikes.likes })
+})
+
+router.get('/getInfo/:id', async (req, res) => {
+    let { id } = req.params;
+
+    let info = await ticketServices.getInfo(id)
+    res.json({ message: "Success", info })
+})
+
+router.get('/getInfo/:id', async (req, res) => {
+    let { id } = req.params;
+
+    let info = await ticketServices.getInfo(id)
+    res.json({ message: "Success", info })
 })
 
 
+router.put('/updateTicket/:id', async (req, res) => {
+    try {
+        let { id } = req.params;
+        let body = req.body.body1;
+        let update = await ticketServices.update(id, body);
+        res.json({ message: "Success" })
+    } catch (e) {
+        res.json({ message: 'Not updated' })
+    }
+
+})
+
+
+router.delete('/deleteTicket/:id', async (req, res) => {
+    try {
+        let { id } = req.params;
+        const deleted = await ticketServices.delete(id)
+        res.json({ message: "Success" })
+    } catch (e) {
+        res.json({message: "Not deleted"})
+    }
+
+
+
+
+})
 
 module.exports = router;
