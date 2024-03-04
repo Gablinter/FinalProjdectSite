@@ -4,7 +4,7 @@ export default function InfoSection() {
             <div className="container">
                 <div className="info_logo">
                     <h2>
-                        HandTime
+                        WatchWonders
                     </h2>
                 </div>
                 <div className="row">
@@ -27,7 +27,7 @@ export default function InfoSection() {
                                     <img src="../../public/dist/images/telephone-white.png" width="12px" alt="" />
                                 </div>
                                 <p>
-                                    +01 1234567890
+                                    +359 898938992 
                                 </p>
                             </div>
                             <div>
@@ -35,7 +35,7 @@ export default function InfoSection() {
                                     <img src="../../public/dist/images/envelope-white.png" width="18px" alt="" />
                                 </div>
                                 <p>
-                                    demo@gmail.com
+                                    watchwonders@gmail.com
                                 </p>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ export default function InfoSection() {
                                 Informations
                             </h5>
                             <p>
-                                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            In our online watch shop, we offer a diverse and carefully curated selection of timepieces to cater to every discerning taste. From classic and vintage-inspired watches to cutting-edge smartwatches, our collection encompasses a wide range of styles and functionalities.
                             </p>
                         </div>
                     </div>
@@ -66,35 +66,35 @@ export default function InfoSection() {
                                         </a>
                                     </div>
                                     <div className="col-4 px-0">
-                                        <a href="">
+                                        <a href="/catalog">
                                             <div className="insta-box b-1">
                                                 <img src=".../../public/dist/images/w2.png" alt="" />
                                             </div>
                                         </a>
                                     </div>
                                     <div className="col-4 px-0">
-                                        <a href="">
+                                        <a href="/catalog">
                                             <div className="insta-box b-1">
                                                 <img src=".../../public/dist/images/w3.png" alt="" />
                                             </div>
                                         </a>
                                     </div>
                                     <div className="col-4 px-0">
-                                        <a href="">
+                                        <a href="/catalog">
                                             <div className="insta-box b-1">
                                                 <img src=".../../public/dist/images/w4.png" alt="" />
                                             </div>
                                         </a>
                                     </div>
                                     <div className="col-4 px-0">
-                                        <a href="">
+                                        <a href="/catalog">
                                             <div className="insta-box b-1">
                                                 <img src=".../../public/dist/images/w5.png" alt="" />
                                             </div>
                                         </a>
                                     </div>
                                     <div className="col-4 px-0">
-                                        <a href="">
+                                        <a href="/catalog">
                                             <div className="insta-box b-1">
                                                 <img src=".../../public/dist/images/w6.png" alt="" />
                                             </div>
@@ -117,16 +117,16 @@ export default function InfoSection() {
                                 </button>
                             </form>
                             <div className="social_box">
-                                <a href="">
+                                <a href="https://www.facebook.com">
                                     <img src=".../../public/dist/images/fb.png" alt="" />
                                 </a>
-                                <a href="">
+                                <a href="https://twitter.com">
                                     <img src=".../../public/dist/images/twitter.png" alt="" />
                                 </a>
-                                <a href="">
+                                <a href="https://www.linkedin.com">
                                     <img src=".../../public/dist/images/linkedin.png" alt="" />
                                 </a>
-                                <a href="">
+                                <a href="https://www.youtube.com/">
                                     <img src=".../../public/dist/images/youtube.png" alt="" />
                                 </a>
                             </div>

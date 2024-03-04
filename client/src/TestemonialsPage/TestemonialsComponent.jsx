@@ -1,6 +1,6 @@
 import Header from "../../components/TestemonialsComponents/Header"
 import Testemonial from "../../components/TestemonialsComponents/Testemonials";
-import InfoSection from "../../components/ProductsPageComponents/InfoSection";
+import InfoSection from '../../components/HomePageComponents/InfoSection';
 import Footer from "../../components/HomePageComponents/Footer";
 
 
