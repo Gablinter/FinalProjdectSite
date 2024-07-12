@@ -1,4 +1,4 @@
-import ContactSection from "../../components/ContactUsComponents/ContactSection";
+import ContactSection from "../../components/HomePageComponents/ContactSection";
 import Header from "../../components/ContactUsComponents/Header";
 import InfoSection from '../../components/HomePageComponents/InfoSection';
 import Footer from '../../components/HomePageComponents/Footer';

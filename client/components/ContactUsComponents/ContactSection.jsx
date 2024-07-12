@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import GoogleMapReact from 'google-map-react';
 
@@ -33,6 +32,7 @@ export default function ContactSection() {
             .then((res) => res.json())
             .then((data) => {
                 if (data.message !== 'Success') {
+                    console.log(data)
                     setErrorMessage(
                         <>
                             <p className="contactErorMessage">{data.message}</p>

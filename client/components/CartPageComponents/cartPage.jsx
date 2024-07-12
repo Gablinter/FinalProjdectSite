@@ -8,6 +8,8 @@ export default function CartPage() {
     let [products, setProducts] = useState([]);
     let [price, setPrice] = useState(0);
 
+
+
     useEffect(() => {
         fetch('http://localhost:3000/posts/cartPage', {
             method: "POST",
@@ -23,15 +25,15 @@ export default function CartPage() {
                 setProducts(data.products);
                 let sum = data.products;
                 let price = 0;
-                sum.map((x) => price+= Number(x))
+                sum.map((x) => price += Number(x))
                 setPrice(price)
             }
             );
     }, []);
 
-    // useEffect(() => {
-    //    console.log(`There has been a change`)
-    // }, [products]);
+    useEffect(() => { 
+       console.log(products)
+    }, [products]);
 
     async function delteWatchHandler(e) {
         let watchId = e.target.className;
@@ -50,7 +52,7 @@ export default function CartPage() {
                 setProducts(data.products);
                 let sum = data.products;
                 let price = 0;
-                sum.map((x) => price+= Number(x))
+                sum.map((x) => price += Number(x))
                 setPrice(price)
             })
     }

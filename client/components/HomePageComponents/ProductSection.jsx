@@ -54,7 +54,7 @@ export default function ProductSection() {
             e.target.textContent = "Added"
             setTimeout(() => {
                 e.target.textContent = 'Add to cart'
-            }, 2500)
+            }, 1500)
             fetch('http://localhost:3000/posts/addToCart', {
                 method: 'POST',
                 body: JSON.stringify(body),
