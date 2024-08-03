@@ -4,7 +4,5 @@ import TestemonialsComponent from './TestemonialsComponent'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
         <TestemonialsComponent />
-    </React.StrictMode>,
 )
