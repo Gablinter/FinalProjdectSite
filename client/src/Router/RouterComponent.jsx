@@ -11,6 +11,7 @@ import RegisterPage from '../RegisterPage/App'
 import CartPage from '../CartPage/App';
 import NotFound from '../404Page/App';
 import AuthGuard from "../guards/AuthGuard";
+import LoginGuard from "../guards/LoginGuard";
 
 export default function App() {
 
@@ -27,8 +28,8 @@ export default function App() {
             <Route path="/contactUs" element={<ContactPage />} />
             <Route path="/readMore" element={<ReadMore />} />
             <Route path="/tickets" element={<AuthGuard> <Tickets /></AuthGuard>} />
-            <Route path="/users/login" element={<LoginPage />} />
-            <Route path="/users/register" element={<RegisterPage />} />
+            <Route path="/users/login" element={<LoginGuard><LoginPage /> </LoginGuard>} />
+            <Route path="/users/register" element={<LoginGuard><RegisterPage /> </LoginGuard>} />
             <Route path="/cartPage" element={<AuthGuard> <CartPage /></AuthGuard>} />
             <Route path="*" element={<NotFound />} />
         </Routes>
