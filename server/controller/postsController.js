@@ -129,6 +129,14 @@ router.get('/getInfo/:id', async (req, res) => {
     res.json({ message: "Success", info })
 })
 
+router.get('/tickets/:token', async (req, res) => {
+    let { token } = req.params;
+    let result = await jwt.verify((token), 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
+    let username = result.username;
+    let info = await ticketServices.getTickets(username);
+    res.json({ info, username });
+})
+
 
 router.put('/updateTicket/:id', async (req, res) => {
     try {
@@ -149,7 +157,7 @@ router.delete('/deleteTicket/:id', async (req, res) => {
         const deleted = await ticketServices.delete(id)
         res.json({ message: "Success" })
     } catch (e) {
-        res.json({message: "Not deleted"})
+        res.json({ message: "Not deleted" })
     }
 
 

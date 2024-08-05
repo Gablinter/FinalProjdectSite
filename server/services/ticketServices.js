@@ -84,6 +84,10 @@ exports.getInfo = (id) => {
     let ticket = Message.findById(id);
     return ticket;
 }
+exports.getTickets = (name) => {
+    let tickets = Message.find({ name: name})
+    return tickets;
+}
 
 exports.update = (id, body) => {
     let ticket = Message.findByIdAndUpdate(id, body);

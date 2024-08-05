@@ -31,9 +31,9 @@ export default function CartPage() {
             );
     }, []);
 
-    useEffect(() => { 
-       console.log(products)
-    }, [products]);
+    // useEffect(() => { 
+    //    console.log(products)
+    // }, [products]);
 
     async function delteWatchHandler(e) {
         let watchId = e.target.className;

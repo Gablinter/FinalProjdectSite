@@ -60,9 +60,6 @@ export default function ProductSection() {
             }).then(  setTimeout(() => {
                 e.target.textContent = 'Add to cart'
             }, 1000))
-            // setTimeout(() => {
-            //     e.target.textContent = 'Add to cart'
-            // }, 1000)
         } else {
             let classId1 = ''
             if (e.target.id === '250' || e.target.id === '300' || e.target.id === '400') {

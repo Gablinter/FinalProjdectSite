@@ -6,6 +6,7 @@ import Testemonials from '../TestemonialsPage/TestemonialsComponent';
 import ContactPage from '../ContactUsPage/App'
 import LoginPage from '../LoginPage/LoginPageComponent'
 import ReadMore from '../../pages/readMorePage';
+import Tickets from '../TicketPage/TicketCompontent';
 import RegisterPage from '../RegisterPage/App'
 import CartPage from '../CartPage/App';
 import NotFound from '../404Page/App';
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/testimonials" element={<Testemonials />} />
             <Route path="/contactUs" element={<ContactPage />} />
             <Route path="/readMore" element={<ReadMore />} />
+            <Route path="/tickets" element={<AuthGuard> <Tickets /></AuthGuard>} />
             <Route path="/users/login" element={<LoginPage />} />
             <Route path="/users/register" element={<RegisterPage />} />
             <Route path="/cartPage" element={<AuthGuard> <CartPage /></AuthGuard>} />

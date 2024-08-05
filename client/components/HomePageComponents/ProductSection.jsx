@@ -45,22 +45,23 @@ export default function ProductSection() {
     }, [])
 
     async function addToCartHandler(e) {
-        e.preventDefault()
+        e.preventDefault();
         let body = {
             token: cookie.token,
             watch: e.target.id
         }
         if (cookie.token !== undefined) {
             e.target.textContent = "Added"
-            setTimeout(() => {
-                e.target.textContent = 'Add to cart'
-            }, 1500)
             fetch('http://localhost:3000/posts/addToCart', {
                 method: 'POST',
                 body: JSON.stringify(body),
                 mode: 'cors',
                 headers: { "Content-Type": "application/json" }
             })
+            setTimeout(() => {
+                e.target.textContent = 'Add to cart';
+            }, 1500)
+
         } else {
             let classId1 = ''
             if (e.target.id === '250' || e.target.id === '300' || e.target.id === '400') {
@@ -70,7 +71,7 @@ export default function ProductSection() {
             } else if (e.target.id === '190' || e.target.id === '310' || e.target.id === '390') {
                 classId1 = 'homeProductsErrorMessage2Add';
             }
-            console.log(classId1)
+            // console.log(classId1)
 
             setErrorMessage(
                 <>

@@ -1,0 +1,283 @@
+.info_section {
+    background-color: #0f1521;
+    color: #ffffff;
+}
+
+.info_section .info_logo {
+    width: 80%;
+    margin: 0 auto 45px auto;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ffffff;
+}
+
+
+
+
+.info_section .info_logo h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.info_section h5 {
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.info_section .info_insta .insta_container img {
+    height: 45px;
+}
+
+.info_section .info_insta .insta_container .insta-box {
+    margin: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+#sendTicket {
+    margin-bottom: 20px;
+}
+
+#headerTickets {
+    text-align: center;
+    color: black;
+    /* background-color: #8019c8; */
+
+}
+
+#ticketsContact {
+    margin-top: 350px;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+/* .li1{
+    font-size: 35px;
+    border-style: solid;
+    margin-right: 1500px;
+    margin-bottom: 100px;
+} */
+
+
+.ticketConteinter {
+
+    width: 300px;
+    border: 15px solid #8019c8;
+    padding: 50px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.viewMessageButton {
+    text-align: center;
+    border-radius: 7.5px;
+    margin-top: 20px;
+    font-size: 20px;
+    color: black;
+    background-color: gray;
+    border-color: #101010;
+    float: left;
+}
+
+.viewMessageButton:hover{
+  color: aqua;   
+}
+
+.editButtonTicket{
+    margin-bottom: 10px;
+}
+
+
+.info_section .info_contact .img-box {
+    width: 35px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.info_section .info_contact p {
+    margin: 0;
+}
+
+.info_section .info_contact>div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.info_section .info_contact>div img {
+    height: auto;
+    margin-right: 12px;
+}
+
+.info_section .info_form form input {
+    outline: none;
+    width: 100%;
+    padding: 7px 10px;
+}
+
+.info_section .info_form form button {
+    display: inline-block;
+    padding: 8px 30px;
+    background-color: #8019c8;
+    color: #ffffff;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: none;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.info_section .info_form form button:hover {
+    background-color: #112284;
+}
+
+.info_section .info_form .social_box {
+    margin-top: 35px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.info_section .info_form .social_box a {
+    margin-right: 25px;
+}
+
+.contact_section {
+    position: relative;
+}
+
+.contact_section .heading_container {
+    margin-bottom: 25px;
+}
+
+.contact_section .heading_container h2 {
+    text-transform: uppercase;
+}
+
+.contact_section .form_container {
+    margin-right: 15px;
+}
+
+.contact_section .form_container input {
+    width: 100%;
+    border: none;
+    height: 50px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    outline: none;
+    color: #101010;
+    -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.15);
+}
+
+.contact_section .form_container input::-webkit-input-placeholder {
+    color: #444;
+}
+
+.contact_section .form_container input:-ms-input-placeholder {
+    color: #444;
+}
+
+.contact_section .form_container input::-ms-input-placeholder {
+    color: #444;
+}
+
+.contact_section .form_container input::placeholder {
+    color: #444;
+}
+
+.contact_section .form_container input.message-box {
+    height: 120px;
+}
+
+.contact_section .form_container button {
+    border: none;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 12px 55px;
+    background-color: #8019c8;
+    color: #ffffff;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: none;
+}
+
+.contact_section .form_container button:hover {
+    background-color: #541184;
+}
+
+.contact_section .map_container {
+    height: 450px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 0;
+}
+
+.contact_section .map_container .map {
+    height: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.contact_section .map_container .map #googleMap {
+    height: 100%;
+    display: block;
+}
+
+.contactErorMessage {
+    background-color: #8019c8;
+    text-align: center;
+    font-size: large;
+    border-radius: 9px;
+    color: white;
+    position: relative;
+    top: 50px;
+    left: 215px;
+    margin-right: 815px;
+}
+
+.editButton {
+    background-color: #8019c8;
+    text-align: center;
+    font-size: large;
+    border-radius: 9px;
+    color: white;
+    position: relative;
+    left: 300px;
+    bottom: 50px;
+    margin-right: 815px;
+}
+
+.deleteButton {
+    position: relative;
+    left: 200px;
+    bottom: 48px;
+    margin-right: 815px;
+}

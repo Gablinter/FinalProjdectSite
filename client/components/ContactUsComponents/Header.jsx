@@ -63,6 +63,10 @@ export default function Header() {
                                     <Link to="/cartPage">
                                         <i className="fa fa-shopping-cart" id="shoppingCart" aria-hidden="true"></i>
                                     </Link>
+                                    <Link to="/tickets">
+                                            <i className="tickets_header">Tickets</i>
+                                        </Link>
+
 
                                     <button className="nav-item" id="logoutButton">
                                         <Link className="nav-link" id='logout-button' onClick={logoutClickHandler}>LOGOUT</Link>
