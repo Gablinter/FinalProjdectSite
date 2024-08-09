@@ -7,7 +7,7 @@ export default function CartPage() {
     let [cookie, setCookie] = useCookies('[token]')
     let [products, setProducts] = useState([]);
     let [price, setPrice] = useState(0);
-
+    let [cart, setCart] = useState(<></>);
 
 
     useEffect(() => {
@@ -30,6 +30,90 @@ export default function CartPage() {
             }
             );
     }, []);
+
+
+    useEffect(() => {
+        let name;
+        let img;
+        let syl;
+        setCart(products.map((x) => {
+            if (x == 250) {
+                name = 'Eternal Elegance Chronograph';
+                img = "../../public/dist/images/w1.png";
+                syl = "deleteFromCartPage250";
+            } else if (x == 300) {
+                name = 'Sapphire Serenity Dive Watch'
+                img = "../../public/dist/images/w2.png"
+                syl = "deleteFromCartPage300";
+            } else if (x == 400) {
+                name = 'Horizon Heritage Automatic'
+                img = "../../public/dist/images/w3.png"
+                syl = "deleteFromCartPage400";
+            } else if (x == 410) {
+                name = 'Lunar Luminescence Moonphase'
+                img = "../../public/dist/images/w4.png"
+                syl = "deleteFromCartPage410";
+            } else if (x == 350) {
+                name = 'Majestic Marvel Swiss Classic'
+                img = "../../public/dist/images/w5.png"
+                syl = "deleteFromCartPage350";
+            } else if (x == 200) {
+                name = 'Velocity Voyager Pilot Watch'
+                img = "../../public/dist/images/w6.png"
+                syl = "deleteFromCartPage200";
+            } else if (x == 190) {
+                name = 'Crimson Cascade Limited Edition'
+                img = "../../public/dist/images/w7.png"
+                syl = "deleteFromCartPage3190";
+            } else if (x == 310) {
+                name = 'Nautical Marine Chronometer'
+                img = "../../public/dist/images/w8.png"
+                syl = "deleteFromCartPage310";
+            } else if (x == 390) {
+                name = 'Celestial Constellation Starlight'
+                img = "../../public/dist/images/w9.png"
+                syl = "deleteFromCartPage390";
+            };
+
+            return (
+                <div className="card mb-3" key={name}>
+                    <div className="card-body">
+                        <div className="d-flex justify-content-between">
+                            <div className="d-flex flex-row align-items-center">
+                                <div>
+                                    <img
+                                        src={img}
+                                        className="img-fluid rounded-3"
+                                        alt="Shopping item"
+                                        style={{ width: 65, marginRight: 10 }}
+                                    />
+                                </div>
+                                <div className="ms-3">
+                                    <h5>{name}</h5>
+                                    <p className="small mb-0"></p>
+                                </div>
+                            </div>
+                            <div className="d-flex flex-row align-items-center">
+                                <div style={{ width: 50 }}>
+                                    <h5 className="fw-normal mb-0">1</h5>
+                                </div>
+                                <div style={{ width: 80 }}>
+                                    <h5 className="mb-0">${x}</h5>
+                                </div>
+                                <a href="#!" style={{ color: "#cecece" }}>
+                                    <i className="fas fa-trash-alt" />
+                                </a>
+                                <p className={syl} onClick={delteWatchHandler}>X</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>)
+        }
+        )
+        )
+    }, [products]);
+
+
 
     // useEffect(() => { 
     //    console.log(products)
@@ -83,334 +167,7 @@ export default function CartPage() {
                                             </div>
 
                                         </div>
-
-                                        {products.includes('250') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w1.png'
-                                                                        id="cartImage1"
-                                                                    // alt="Shopping item"
-                                                                    // style={{ width: 65 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Eternal Elegance Chronograph</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$250</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                            </div>
-                                                            <p className="deleteFromCartPage250" onClick={delteWatchHandler}>X</p>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                            </>
-                                        }
-                                        {products.includes('300') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w2.png'
-                                                                        className="img-fluid rounded-3"
-                                                                        alt="Shopping item"
-                                                                        style={{ width: 65, marginRight: 10 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Sapphire Serenity Dive Watch</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$300</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                                <p className="deleteFromCartPage300" onClick={delteWatchHandler}>X</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        }
-                                        {products.includes('400') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w3.png'
-                                                                        className="img-fluid rounded-3"
-                                                                        alt="Shopping item"
-                                                                        style={{ width: 65, marginRight: 10 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Horizon Heritage Automatic</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$400</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                                <p className="deleteFromCartPage400" onClick={delteWatchHandler}>X</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        }
-                                        {products.includes('410') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w4.png'
-                                                                        className="img-fluid rounded-3"
-                                                                        alt="Shopping item"
-                                                                        style={{ width: 65, marginRight: 10 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Lunar Luminescence Moonphase</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$410</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                                <p className="deleteFromCartPage410" onClick={delteWatchHandler}>X</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        }
-                                        {products.includes('350') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w5.png'
-                                                                        className="img-fluid rounded-3"
-                                                                        alt="Shopping item"
-                                                                        style={{ width: 65, marginRight: 10 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Majestic Marvel Swiss Classic</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$350</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                                <p className="deleteFromCartPage350" onClick={delteWatchHandler}>X</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        }
-                                        {products.includes('200') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w6.png'
-                                                                        className="img-fluid rounded-3"
-                                                                        alt="Shopping item"
-                                                                        style={{ width: 65, marginRight: 10 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Velocity Voyager Pilot Watch</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$200</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                                <p className="deleteFromCartPage200" onClick={delteWatchHandler}>X</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        }
-                                        {products.includes('190') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w7.png'
-                                                                        className="img-fluid rounded-3"
-                                                                        alt="Shopping item"
-                                                                        style={{ width: 65, marginRight: 10 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Crimson Cascade Limited Edition</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$190</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                                <p className="deleteFromCartPage190" onClick={delteWatchHandler}>X</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        }
-                                        {products.includes('310') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w8.png'
-                                                                        className="img-fluid rounded-3"
-                                                                        alt="Shopping item"
-                                                                        style={{ width: 65, marginRight: 10 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Nautical Marine Chronometer</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$310</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                                <p className="deleteFromCartPage310" onClick={delteWatchHandler}>X</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        }
-                                        {products.includes('390') &&
-                                            <>
-                                                <div className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div>
-                                                                    <img
-                                                                        src='../../public/dist/images/w9.png'
-                                                                        className="img-fluid rounded-3"
-                                                                        alt="Shopping item"
-                                                                        style={{ width: 65, marginRight: 10 }}
-                                                                    />
-                                                                </div>
-                                                                <div className="ms-3">
-                                                                    <h5>Celestial Constellation Starlight</h5>
-                                                                    <p className="small mb-0"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="d-flex flex-row align-items-center">
-                                                                <div style={{ width: 50 }}>
-                                                                    <h5 className="fw-normal mb-0">1</h5>
-                                                                </div>
-                                                                <div style={{ width: 80 }}>
-                                                                    <h5 className="mb-0">$390</h5>
-                                                                </div>
-                                                                <a href="#!" style={{ color: "#cecece" }}>
-                                                                    <i className="fas fa-trash-alt" />
-                                                                </a>
-                                                                <p className="deleteFromCartPage390" onClick={delteWatchHandler}>X</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        }
-
+                                        {cart}
 
 
 

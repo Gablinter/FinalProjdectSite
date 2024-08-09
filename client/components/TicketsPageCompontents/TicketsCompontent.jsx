@@ -32,7 +32,8 @@ export default function ContactSection() {
         })
             .then((res) => res.json())
             .then((data) => {
-                let info = data.info; setTickets(info.map((x) =>
+                let info = data.info; 
+                setTickets(info.map((x) =>
                     <article className="ticketConteinter" key={x._id}>
 
                         {/* // {/* < div className="ticketConteinter" key={x._id}> */}
@@ -43,6 +44,7 @@ export default function ContactSection() {
 
                 )
                 )
+                
             }
             );
     }, [tickets]);
