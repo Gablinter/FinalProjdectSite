@@ -11,11 +11,8 @@ export default function CartPage() {
 
 
     useEffect(() => {
-        fetch('http://localhost:3000/posts/cartPage', {
-            method: "POST",
-            body: JSON.stringify({
-                cookie: cookie
-            }),
+        fetch(`http://localhost:3000/posts/cartPage/${cookie.token}`, {
+            method: "GET",
             headers: {
                 "Content-Type": 'application/json'
             }
@@ -32,7 +29,7 @@ export default function CartPage() {
     }, []);
 
 
-    useEffect(() => {
+    useEffect( () => {
         let name;
         let img;
         let syl;
@@ -74,6 +71,21 @@ export default function CartPage() {
                 img = "../../public/dist/images/w9.png"
                 syl = "deleteFromCartPage390";
             };
+            // let watchId = x;
+            // fetch(`http://localhost:3000/posts/watches/${watchId}`, {
+            //     method: "GET",
+            //     headers: {
+            //         "Content-Type": 'application/json'
+            //     }
+            // })
+            //     .then((res) => res.json())
+            //     .then((data) => {
+            //         name = data.watches.name;
+            //         img = data.watches.img;
+            //         syl = `deleteFromCartPage${price}`;
+            //         console.log(name)
+            //     }
+            //     );
 
             return (
                 <div className="card mb-3" key={name}>

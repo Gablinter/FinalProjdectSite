@@ -28,9 +28,9 @@ router.post('/addToCart', async (req, res) => {
 
 })
 
-router.post('/cartPage', async (req, res) => {
-    let token = req.body.cookie.token;
-    let result = await jwt.verify(token, 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
+router.get('/cartPage/:cookie', async (req, res) => {
+    let { cookie } = req.params;
+    let result = await jwt.verify(cookie , 'f0e95d18-feb8-4561-ae18-d3cd41b749d5');
     let username = result.username;
     let user = await userService.getUser(username);
     res.json({ products: user.products })
@@ -51,6 +51,12 @@ router.post('/liked', async (req, res) => {
         res.json({ message: "Already liked", watchId: req.body.watchId })
     }
 })
+
+// router.get('/watches/:watchId', async (req, res) => {
+//     let { watchId } = req.params;
+//     let result = await userService.getWatches(watchId);
+//     res.json({watches: result})
+// })
 
 router.put('/unlike', async (req, res) => {
     if (req.body.token === undefined) {

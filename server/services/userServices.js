@@ -146,3 +146,4 @@ exports.getLikes = async (username) => {
     let user = await User.findOne({ username });
     return user;
 }
+
