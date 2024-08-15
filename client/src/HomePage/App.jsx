@@ -7,14 +7,14 @@ import ContactSection from '../../components/HomePageComponents/ContactSection'
 import ClientSection from '../../components/HomePageComponents/ClientSection'
 import InfoSection from '../../components/HomePageComponents/InfoSection'
 import Footer from '../../components/HomePageComponents/Footer';
-import { HomePageContext } from '../../Context/HomePageContext'
+import { HomePageProvider } from '../../Context/HomePageContext'
 // import { useState } from 'react';
 // import { useEffect } from 'react';
 
 export default function App() {
 
   return (
-    <HomePageContext.Provider value={'Gabro'}>
+    <HomePageProvider value={'Gabro'}>
       <div>
         <Header />
         <SliderSection />
@@ -26,7 +26,7 @@ export default function App() {
         <InfoSection />
         <Footer />
       </div>
-    </HomePageContext.Provider>
+    </HomePageProvider>
   )
 }
 
