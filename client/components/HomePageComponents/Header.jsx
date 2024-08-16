@@ -1,11 +1,12 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 import { useEffect, useState } from 'react';
-let i = 0;
+
 
 export default function Hearder() {
+    let [index, setIndex] = useState(0)
     let [isLoggedIn, setIsLoggedIn] = useState('');
-    let [message, setMessage] = useState([]);
+    let [message, setMessage] = useState('');
     let [cookie, setCookie, removeCookie] = useCookies('[token]');
 
 
@@ -19,9 +20,9 @@ export default function Hearder() {
     function logoutClickHandler(e) {
         e.preventDefault();
         removeCookie('token')
-        setIsLoggedIn(i);
-        setMessage(i)
-        i++
+        setIsLoggedIn(index);
+        setMessage(index);
+        setIndex((x) => x++);
     }
 
     return (

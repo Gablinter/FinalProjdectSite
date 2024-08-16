@@ -14,19 +14,17 @@ import { HomePageProvider } from '../../Context/HomePageContext'
 export default function App() {
 
   return (
-    <HomePageProvider value={'Gabro'}>
-      <div>
-        <Header />
-        <SliderSection />
-        <ServiceSection />
-        <AboutSection />
-        <ProductSection />
-        <ContactSection />
-        <ClientSection />
-        <InfoSection />
-        <Footer />
-      </div>
-    </HomePageProvider>
+    <div>
+      <Header />
+      <SliderSection />
+      <ServiceSection />
+      <AboutSection />
+      <ProductSection />
+      <ContactSection />
+      <ClientSection />
+      <InfoSection />
+      <Footer />
+    </div>
   )
 }
 
