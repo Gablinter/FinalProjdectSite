@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useCookies } from "react-cookie";
 import { useEffect, useState } from 'react';
 
+let i = 0;
 export default function Header() {
 
     let [isLoggedIn, setIsLoggedIn] = useState('');
@@ -64,8 +65,8 @@ export default function Header() {
                                         <i className="fa fa-shopping-cart" id="shoppingCart" aria-hidden="true"></i>
                                     </Link>
                                     <Link to="/tickets">
-                                            <i className="tickets_header">Tickets</i>
-                                        </Link>
+                                        <i className="tickets_header">Tickets</i>
+                                    </Link>
 
 
                                     <button className="nav-item" id="logoutButton">

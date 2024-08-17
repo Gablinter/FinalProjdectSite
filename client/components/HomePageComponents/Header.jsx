@@ -20,7 +20,7 @@ export default function Hearder() {
         e.preventDefault();
         removeCookie('token')
         setIsLoggedIn(i);
-        setMessage(i)
+        setMessage(i);
         i++
     }
 
